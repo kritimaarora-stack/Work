@@ -1,0 +1,302 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>First Mile rider app at scale — Kritima Arora</title>
+<meta name="description" content="Reimagining Delhivery's First Mile rider app: from a pickup-request list to stop-centric routes for 8,967 field executives.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #FFFFFF; --wash: #F3F3F3; --ink: #1A1D1F; --ink-2: #4B5257; --ink-3: #697075; --line: #E2E5E7;
+  --acc: #176B5B; --acc-2: #E3F0EC; --slate: #ACBBC2; --slate-2: #E9EEF0; --red: #D7192A;
+  --font: 'Inter', 'Helvetica Neue', Helvetica, sans-serif; --t-h2: clamp(28px, 3vw, 40px); --sec-pad: clamp(72px, 9vw, 120px);
+}
+*, *::before, *::after { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 400 18px/1.65 var(--font); -webkit-font-smoothing: antialiased; }
+h1, h2, h3, h4, p, ol, ul, figure, q { margin: 0; }
+:focus-visible { outline: 3px solid var(--acc); outline-offset: 3px; }
+.wrap { max-width: 1200px; margin: 0 auto; padding: 0 clamp(20px, 5vw, 64px); }
+/* shared site header */
+.sitebar{position:sticky;top:0;z-index:70;box-sizing:border-box;width:100%;padding:env(safe-area-inset-top,0px) 0 0;background:#fff;border-bottom:1px solid #efedea;font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;text-align:left}
+.sitebar .sb-in{box-sizing:border-box;max-width:1280px;height:60px;margin:0 auto;padding:0 20px;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.sitebar nav{display:flex;gap:8px;margin:0;width:auto}
+.sitebar a{flex:none;display:inline-flex;align-items:center;justify-content:center;gap:6px;box-sizing:border-box;min-width:108px;min-height:38px;max-width:none;white-space:nowrap;font-family:inherit;font-weight:500;font-size:14px;line-height:1;color:#555;text-decoration:none;border:1px solid #e4e2de;border-radius:999px;padding:10px 15px;background:#fff;transition:color .15s,background .15s}
+.sitebar a:hover{color:#111;background:#efeeec}
+.sitebar a[aria-current="page"],.sitebar a[aria-current="page"]:hover{color:#111;border-color:#111;background:#fff}
+.sitebar a:focus-visible{outline:2px solid #111;outline-offset:2px}
+@media (max-width:480px){.sitebar .sb-in{padding:0 12px;gap:6px}.sitebar nav{gap:6px}.sitebar a{min-width:0;min-height:36px;font-size:13px;padding:9px 12px}}
+
+.sitebar .prog { position: absolute; left: 0; right: 0; bottom: -1px; height: 4px; background: #e4e2de; }
+.sitebar .prog::after { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: calc(var(--prog, 0) * 100%); background: var(--acc); transition: width .1s linear; }
+.hero { padding: clamp(40px, 5vw, 72px) 0 clamp(32px, 4vw, 48px); }
+.hero-in { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); gap: clamp(32px, 4vw, 64px); align-items: center; }
+.proj { font-weight: 600; font-size: 16px; color: var(--acc); margin-bottom: 12px; }
+h1 { font-weight: 700; font-size: clamp(38px, 4.4vw, 58px); line-height: 1.04; letter-spacing: -0.035em; }
+.sub { margin-top: 16px; max-width: 560px; font-size: clamp(18px, 1.5vw, 21px); line-height: 1.5; color: var(--ink-2); }
+.cats { list-style: none; padding: 0; margin-top: 18px; display: flex; flex-wrap: wrap; gap: 6px; }
+.cats li { font-size: 13px; font-weight: 600; padding: 6px 12px; border-radius: 999px; background: var(--slate-2); color: var(--ink); }
+.results { margin-top: 24px; display: grid; grid-template-columns: repeat(3, auto); justify-content: start; gap: 8px 32px; }
+.results div { display: flex; flex-direction: column; gap: 2px; }
+.results b { font-size: clamp(24px, 2.4vw, 32px); font-weight: 700; letter-spacing: -0.03em; color: var(--acc); line-height: 1.1; }
+.results span { font-size: 14px; color: var(--ink-2); max-width: 180px; }
+.meta { margin-top: 24px; padding-top: 18px; border-top: 1px solid var(--line); display: grid; grid-template-columns: 1fr 1fr 2fr; gap: 8px 28px; }
+.meta div { display: flex; flex-direction: column; gap: 2px; }
+.meta b { font-size: 13px; font-weight: 600; color: var(--ink-3); }
+.meta span { font-size: 15px; line-height: 1.45; }
+.map { background: var(--slate-2); padding: 18px; display: grid; gap: 12px; }
+.map-h { display: flex; justify-content: space-between; font-size: 13px; font-weight: 600; color: var(--ink-2); }
+.maps { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.mp { background: #fff; padding: 12px; display: flex; flex-direction: column; gap: 8px; }
+.mp span { font-size: 12px; font-weight: 600; color: var(--ink-3); }
+.mp b.t { font-size: 14px; }
+.field { position: relative; aspect-ratio: 1; background: repeating-linear-gradient(0deg, transparent 0 23px, #EEF1F2 23px 24px), repeating-linear-gradient(90deg, transparent 0 23px, #EEF1F2 23px 24px); }
+.pin { position: absolute; width: 10px; height: 10px; border-radius: 50%; background: var(--red); transform: translate(-50%, -50%); box-shadow: 0 0 0 2px #fff; }
+.stop { position: absolute; transform: translate(-50%, -50%); background: var(--acc); color: #fff; border-radius: 10px; padding: 3px 7px; display: flex; flex-direction: column; align-items: center; line-height: 1.1; box-shadow: 0 0 0 2px #fff; z-index: 2; }
+.stop b { font-size: 12px; } .stop small { font-size: 9px; opacity: .9; }
+.field svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+.map-f { font-size: 13px; color: var(--ink-2); }
+.sec { padding-top: var(--sec-pad); display: flex; flex-direction: column; gap: 32px; }
+.rule { display: flex; gap: 12px; border-top: 1px solid var(--ink); padding-top: 14px; font-weight: 600; font-size: 13px; }
+.rule .rn { color: var(--acc); }
+h2 { max-width: 880px; font-weight: 700; font-size: var(--t-h2); line-height: 1.12; letter-spacing: -0.03em; }
+h3 { font-weight: 600; font-size: 20px; line-height: 1.3; letter-spacing: -0.015em; }
+.prose { max-width: 760px; color: var(--ink-2); display: flex; flex-direction: column; gap: 14px; }
+.prose b { color: var(--ink); }
+.phases { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 12px; }
+.phases > li { background: var(--wash); padding: 18px; display: flex; flex-direction: column; gap: 8px; }
+.pn { font-weight: 700; font-size: 13px; color: var(--acc); }
+.phases b { font-size: 17px; }
+.phases ul { padding-left: 16px; display: flex; flex-direction: column; gap: 4px; font-size: 14px; color: var(--ink-2); }
+.stats { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; max-width: 640px; }
+.stats div { background: var(--acc-2); padding: 20px; }
+.stats b { display: block; font-size: clamp(32px, 3.4vw, 44px); line-height: 1; font-weight: 700; letter-spacing: -0.03em; color: var(--acc); }
+.stats span { font-size: 15px; color: var(--ink-2); }
+.flow { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.flow li { background: var(--wash); padding: 10px 14px; font-weight: 600; font-size: 15px; display: flex; gap: 8px; align-items: baseline; }
+.flow li span { font-size: 12px; color: var(--acc); }
+.flow li.ar { background: none; padding: 0; color: var(--acc); }
+.personas { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.personas > li { border: 1px solid var(--line); padding: 24px; display: flex; flex-direction: column; gap: 14px; }
+.pe-h { display: flex; flex-direction: column; gap: 2px; }
+.pe-h b { font-size: 20px; } .pe-h span { color: var(--acc); font-weight: 600; font-size: 15px; } .pe-h small { color: var(--ink-3); font-size: 13px; }
+.personas q { font-size: 16px; font-weight: 500; background: var(--wash); padding: 14px 16px; }
+.pe-g { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.pe-g h4 { font-size: 13px; color: var(--ink-3); margin-bottom: 6px; }
+.pe-g ul { padding-left: 16px; display: flex; flex-direction: column; gap: 4px; font-size: 14px; color: var(--ink-2); }
+.cards2 { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.cards2 li { background: var(--wash); padding: 24px; display: flex; flex-direction: column; gap: 8px; }
+.cards2 b { font-size: 19px; } .cards2 span { font-size: 16px; color: var(--ink-2); }
+.pg { display: flex; flex-direction: column; gap: 12px; }
+.pg h3 { font-size: 15px; color: var(--ink-3); }
+.pcards { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; }
+.pcards li { border: 1px solid var(--line); padding: 20px; display: flex; flex-direction: column; gap: 6px; }
+.pcards .st { font-size: clamp(26px, 2.6vw, 34px); line-height: 1.05; letter-spacing: -0.03em; color: var(--red); }
+.pcards b { font-size: 17px; } .pcards span { font-size: 15px; color: var(--ink-2); }
+.sols { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 24px 28px; }
+.sols li { display: flex; flex-direction: column; gap: 6px; padding-top: 16px; border-top: 2px solid var(--acc); }
+.sols b { font-size: 18px; } .sols span:last-child { font-size: 15px; color: var(--ink-2); }
+.iter { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+.it { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 2fr); gap: 20px; align-items: start; background: var(--wash); padding: 20px; }
+.it h3 { font-size: 18px; margin-bottom: 8px; }
+.it ul { padding-left: 16px; display: flex; flex-direction: column; gap: 6px; font-size: 14px; color: var(--ink-2); }
+.it .why { margin-top: 12px; font-size: 14px; font-weight: 600; color: var(--acc); }
+.shot { display: flex; flex-direction: column; gap: 8px; }
+.shot-slot { border: 1.5px dashed var(--slate); background: var(--slate-2); color: var(--ink-3); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; text-align: center; padding: 12px; font-size: 13px; font-weight: 600; }
+.shot figcaption { font-size: 13px; color: var(--ink-3); }
+.wide-slot .shot-slot { aspect-ratio: 16 / 7 !important; }
+.band { background: var(--slate); margin-top: var(--sec-pad); }
+.band .sec { padding: clamp(56px, 7vw, 96px) 0; }
+.fins { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+.fin { background: #fff; padding: 24px; display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 2fr); gap: 20px; align-items: center; }
+.fin .k { font-size: 13px; font-weight: 700; color: var(--acc); }
+.fin h3 { margin: 4px 0 8px; font-size: 20px; } .fin p { font-size: 15px; color: var(--ink-2); }
+.quotes { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; }
+.quotes li { background: var(--acc-2); padding: 22px; display: flex; flex-direction: column; gap: 10px; }
+.qt { align-self: flex-start; font-size: 12px; font-weight: 700; color: #fff; background: var(--acc); padding: 3px 10px; border-radius: 999px; }
+.quotes p { font-size: 15px; line-height: 1.55; }
+.impact { background: var(--acc); color: #fff; margin-top: var(--sec-pad); }
+.impact .sec { padding: clamp(56px, 7vw, 96px) 0; }
+.impact .rule { border-top-color: rgba(255,255,255,.4); } .impact .rule .rn { color: #BFE3D8; }
+.imps { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 32px; }
+.imps b { display: block; font-size: clamp(40px, 4.4vw, 60px); line-height: 1; font-weight: 700; letter-spacing: -0.04em; }
+.imps b small { font-size: .5em; opacity: .7; margin: 0 6px; }
+.imps p { margin-top: 10px; font-size: 16px; color: #DDEFEA; }
+.foot { margin-top: var(--sec-pad); border-top: 1px solid var(--ink); padding: 48px 0 calc(env(safe-area-inset-bottom, 0px) + 64px); display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 20px; }
+.foot p { font-weight: 700; font-size: var(--t-h2); letter-spacing: -0.03em; line-height: 1.1; }
+.foot a { color: #fff; background: var(--ink); text-decoration: none; font-weight: 500; font-size: 16px; padding: 14px 22px; border-radius: 999px; }
+.foot a:hover { background: var(--acc); }
+.tldr-btn { position: fixed; z-index: 60; right: calc(env(safe-area-inset-right, 0px) + 20px); bottom: calc(env(safe-area-inset-bottom, 0px) + 20px); display: inline-flex; align-items: center; gap: 8px; padding: 12px 18px; border: 1.5px solid var(--ink); border-radius: 999px; background: var(--slate); color: var(--ink); font: 600 14px/1 var(--font); letter-spacing: .04em; cursor: pointer; box-shadow: 0 6px 20px rgba(26,29,31,.18); }
+.tldr-btn[aria-expanded="true"] { background: var(--ink); color: #fff; }
+.tldr-panel { position: fixed; z-index: 59; right: calc(env(safe-area-inset-right, 0px) + 20px); bottom: calc(env(safe-area-inset-bottom, 0px) + 80px); width: min(440px, calc(100vw - 40px)); max-height: calc(100dvh - 140px); overflow-y: auto; background: #fff; color: var(--ink); border: 1px solid var(--line); border-radius: 18px; padding: 24px; box-shadow: 0 18px 50px rgba(26,29,31,.18); }
+.tldr-panel[hidden] { display: none; }
+.tl-k { font-weight: 600; font-size: 13px; color: var(--acc); }
+.tldr-panel h2 { font-size: 21px; line-height: 1.3; margin: 6px 0 18px; }
+.tldr-panel dl { margin: 0; display: grid; gap: 14px; }
+.tldr-panel dt { font-weight: 600; font-size: 14px; }
+.tldr-panel dd { margin: 4px 0 0; font-size: 15px; line-height: 1.55; color: var(--ink-2); }
+.tl-foot { margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--line); display: flex; justify-content: space-between; align-items: center; font-size: 14px; color: var(--ink-3); }
+.tl-close { border: 0; background: none; font: 600 14px var(--font); color: var(--ink); cursor: pointer; text-decoration: underline; padding: 6px 0; }
+@media (max-width: 1000px) { .phases { grid-template-columns: repeat(2, minmax(0, 1fr)); } .iter, .fins, .personas { grid-template-columns: 1fr; } }
+@media (max-width: 900px) { .hero-in { grid-template-columns: 1fr; } }
+@media (max-width: 640px) { .meta, .results, .phases, .cards2, .stats, .pe-g { grid-template-columns: 1fr; } .it, .fin { grid-template-columns: 1fr; } }
+@media (prefers-reduced-motion: reduce) { .sitebar .prog::after { transition: none; } }
+</style>
+</head>
+<body>
+<header class="sitebar"><div class="sb-in"><a href="index.html" aria-label="Kritima Arora — back to home"><span aria-hidden="true">←</span>Kritima Arora</a><nav aria-label="Main"><a href="podcast.html">Podcast</a><a href="about.html">About</a></nav></div><i class="prog" aria-hidden="true"></i></header>
+
+<header class="hero">
+  <div class="wrap hero-in">
+    <div>
+      <p class="proj">First Mile operations · Delhivery</p>
+      <h1>Reimagining First Mile operations at scale</h1>
+      <p class="sub">We moved Delhivery's rider app from a long list of pickup requests to stop-based routes, for 8,967 field executives across 2,848 First Mile centres.</p>
+      <ul class="cats" aria-label="Categories"><li>Building a 1–10 feature</li><li>Solving for scale</li><li>Efficiency</li></ul>
+      <div class="results">
+        <div><b>44 → 32</b><span>individual locations grouped into stops</span></div>
+        <div><b>36%</b><span>of pickups followed the #1 recommended next stop</span></div>
+        <div><b>66%</b><span>were within the top 5 recommendations</span></div>
+      </div>
+      <div class="meta">
+        <div><b>Status</b><span>Launched, March 2026</span></div>
+        <div><b>Scale</b><span>2,848 centres · 8,967 FEs</span></div>
+        <div><b>My role</b><span>Design Manager, joining midway as an IC to learn the domain</span></div>
+      </div>
+    </div>
+    <figure class="map" aria-label="Diagram: on the left, twelve scattered pickup pins; on the right, the same area grouped into five numbered stops joined by a planned route">
+      <div class="map-h"><span>Same area, same day</span><span>Before → after</span></div>
+      <div class="maps">
+        <div class="mp"><span>Before</span><b class="t">12 pickup requests</b><div class="field"><i class="pin" style="left:12%;top:20%"></i><i class="pin" style="left:22%;top:34%"></i><i class="pin" style="left:18%;top:62%"></i><i class="pin" style="left:30%;top:74%"></i><i class="pin" style="left:44%;top:22%"></i><i class="pin" style="left:52%;top:40%"></i><i class="pin" style="left:48%;top:70%"></i><i class="pin" style="left:64%;top:30%"></i><i class="pin" style="left:70%;top:58%"></i><i class="pin" style="left:78%;top:80%"></i><i class="pin" style="left:84%;top:24%"></i><i class="pin" style="left:88%;top:48%"></i></div></div>
+        <div class="mp"><span>After</span><b class="t">5 sequenced stops</b><div class="field"><svg viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path d="M20,32 L48,30 L84,30 L74,62 L32,70" fill="none" stroke="#176B5B" stroke-width="1.2" stroke-dasharray="3 2" vector-effect="non-scaling-stroke"></path></svg><i class="stop" style="left:20%;top:32%"><b>1</b><small>3 PURs</small></i><i class="stop" style="left:48%;top:30%"><b>2</b><small>3 PURs</small></i><i class="stop" style="left:32%;top:70%"><b>3</b><small>2 PURs</small></i><i class="stop" style="left:74%;top:62%"><b>4</b><small>3 PURs</small></i><i class="stop" style="left:84%;top:30%"><b>5</b><small>1 PURs</small></i></div></div>
+      </div>
+      <p class="map-f">FEs stopped hunting for each request and started following a route.</p>
+    </figure>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="sec" aria-labelledby="s1">
+    <div class="rule"><span class="rn">01</span><span>My role</span></div>
+    <h2 id="s1">My first project at Delhivery, and I took it on as an IC.</h2>
+    <div class="prose"><p>As Design Manager, I led a strategic initiative to improve how First Mile Executives plan routes, carry out pickups and scan shipments. Through field immersion, stakeholder alignment, systems thinking and iterative pilots, we turned a <b>pickup-request-centric workflow into a stop-centric operating model</b>.</p>
+    <p>It was my first project at Delhivery and I had limited exposure to the domain, so I picked it up midway <b>as an IC</b> to learn First Mile operations and how the new organisation worked.</p></div>
+    <ol class="phases"><li><span class="pn">01</span><b>Discovery</b><ul><li>Defining research strategy</li><li>Planning field visits</li><li>Identifying operational opportunities</li></ul></li><li><span class="pn">02</span><b>Team</b><ul><li>Guiding designers through ambiguity</li><li>Facilitating design reviews</li><li>Driving iterative exploration</li></ul></li><li><span class="pn">03</span><b>Alignment</b><ul><li>Product</li><li>Engineering</li><li>Operations</li><li>First Mile leadership</li></ul></li><li><span class="pn">04</span><b>Direction</b><ul><li>Defining the experience vision</li><li>Prioritising opportunities</li><li>Aligning UX decisions to business goals</li></ul></li><li><span class="pn">05</span><b>Rollout</b><ul><li>Pilot planning</li><li>Feedback synthesis</li><li>Success metric definition</li></ul></li></ol>
+  </section>
+
+  <section class="sec" aria-labelledby="s2">
+    <div class="rule"><span class="rn">02</span><span>Context</span></div>
+    <h2 id="s2">The app every First Mile rider uses, all day.</h2>
+    <p class="prose">The First Mile Field Executive (FE) app shows riders the seller locations to pick up from, helps them scan packages, and updates pickup status in real time. Any change reaches:</p>
+    <div class="stats"><div><b>2,848</b><span>First Mile centres</span></div><div><b>8,967</b><span>Field Executives</span></div></div>
+    <h3>The current process</h3>
+    <ol class="flow"><li><span>01</span>Dispatch creation</li><li class="ar" aria-hidden="true">→</li><li><span>02</span>PUR addition</li><li class="ar" aria-hidden="true">→</li><li><span>03</span>Route planning</li><li class="ar" aria-hidden="true">→</li><li><span>04</span>Shipment pickup</li><li class="ar" aria-hidden="true">→</li><li><span>05</span>Handover to the facility</li></ol>
+    <div class="wide-slot"><figure class="shot"><div class="shot-slot" style="aspect-ratio:9 / 19" role="img" aria-label="Screenshot placeholder: Legacy app screens"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"></rect><circle cx="9" cy="10" r="2"></circle><path d="M21 16l-5-5-8 9"></path></svg><span>Legacy app screens</span></div><figcaption>The legacy FE app before the redesign</figcaption></figure></div>
+  </section>
+
+  <section class="sec" aria-labelledby="s3">
+    <div class="rule"><span class="rn">03</span><span>Users</span></div>
+    <h2 id="s3">Two people, one WhatsApp thread too many.</h2>
+    <p class="prose">Riders and pickup coordinators worked around the app: transfers, overloads and off-route pickups were all handled by hand over WhatsApp.</p>
+    <ul class="personas"><li><div class="pe-h"><b>Rajesh Singh</b><span>Field Executive (FE)</span><small>28 · 10th pass · 1 year · 10 AM–7 PM</small></div><q>I just want to have clear information of all the pickup requests so that I can easily take actions accordingly.</q>
+<div class="pe-g"><div><h4>Goals</h4><ul><li>Complete all pickups on his route efficiently</li><li>Clarity on daily workload and route</li><li>Less back-and-forth with the coordinator</li></ul></div><div><h4>Pain points</h4><ul><li>Pickups outside his usual route</li><li>Time lost contacting the coordinator and waiting</li><li>Anxiety about missed pickups and escalations</li></ul></div></div></li><li><div class="pe-h"><b>Vishnu Dev</b><span>Pickup Coordinator (PUC)</span><small>33 · 10th pass · 3 years · 8 AM–5 PM</small></div><q>I want the FE to do maximum pickups in a day, so there are no delays or escalations from sellers.</q>
+<div class="pe-g"><div><h4>Goals</h4><ul><li>Every PUR picked up the same day</li><li>Right PURs to the right FE by route and load</li><li>Fewer manual back-and-forths</li></ul></div><div><h4>Pain points</h4><ul><li>Flooded with WhatsApp messages from many FEs</li><li>Hard to track reassigned vs pending PURs</li><li>High chance of missing a PUR</li></ul></div></div></li></ul>
+  </section>
+
+  <section class="sec" aria-labelledby="s4">
+    <div class="rule"><span class="rn">04</span><span>Research</span></div>
+    <h2 id="s4">We went where the pickups happen.</h2>
+    <ul class="cards2">
+      <li><b>Field shadowing</b><span>Designers shadowed FEs and coordinators on live runs, from scanning shipments under time pressure to navigating broken flows, so we built from on-ground empathy, not assumptions.</span></li>
+      <li><b>User interviews</b><span>Sessions with FM centre managers, team leads and PMs uncovered operational gaps, team frustrations and backend complexity that affect delivery performance.</span></li>
+    </ul>
+    <div class="wide-slot"><figure class="shot"><div class="shot-slot" style="aspect-ratio:9 / 19" role="img" aria-label="Screenshot placeholder: Field research photos"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"></rect><circle cx="9" cy="10" r="2"></circle><path d="M21 16l-5-5-8 9"></path></svg><span>Field research photos</span></div><figcaption>On ground with FEs and coordinators</figcaption></figure></div>
+  </section>
+
+  <section class="sec" aria-labelledby="s5">
+    <div class="rule"><span class="rn">05</span><span>Key problems</span></div>
+    <h2 id="s5">Riders planned routes in their heads and searched for every pickup.</h2>
+    <div class="pg"><h3>Route & dispatch</h3><ul class="pcards"><li><b class="st">6%</b><b>Manual route planning</b><span>Routes aren't system-driven; FEs remember seller locations and plan in their heads, so 6% of PURs stay unattempted.</span></li><li><b class="st">36%</b><b>Mid-day disruptions</b><span>About 36% of PURs are added mid-day, forcing FEs to re-plan while already on the road.</span></li><li><b class="st">10–12 days</b><b>Slow onboarding</b><span>New FEs need 10–12 days to learn seller clusters and the best order to visit them.</span></li><li><b class="st">9%</b><b>PUR transfers</b><span>Finding PURs that can't be serviced and moving them to another dispatch is slow; about 9% get transferred.</span></li></ul></div><div class="pg"><h3>Scanning</h3><ul class="pcards"><li><b class="st">Every stop</b><b>Manual PUR selection</b><span>At every stop, FEs must search for and open the right PUR before they can scan packages.</span></li><li><b class="st">4×</b><b>Scanning time at one location</b><span>The system doesn't group pickups from the same seller, so FEs sort packages by hand: 4× longer scanning at one location.</span></li></ul></div>
+  </section>
+
+  <section class="sec" aria-labelledby="s6">
+    <div class="rule"><span class="rn">06</span><span>Proposed solutions</span></div>
+    <h2 id="s6">Four ideas to cut the hunting and the re-planning.</h2>
+    <ol class="sols"><li><span class="pn">01</span><b>Map view</b><span>An integrated map with stop and PUR pins and the FE's current location.</span></li><li><span class="pn">02</span><b>Stop sequencing</b><span>Nearby sellers grouped into one STOP, where the FE parks and attempts every PUR, then stops sequenced to cut repeat travel.</span></li><li><span class="pn">03</span><b>PUR management</b><span>Spot new (36%), escalated and failed-to-pickup PURs on the move, without searching.</span></li><li><span class="pn">04</span><b>Global scan</b><span>Scan any package without picking a PUR first; the system links it and shows picked vs not-picked per PUR.</span></li></ol>
+  </section>
+
+  <section class="sec" aria-labelledby="s7">
+    <div class="rule"><span class="rn">07</span><span>Iterations</span></div>
+    <h2 id="s7">Design evolving with each review.</h2>
+    <div class="iter">
+      <div class="it"><div><h3>Home screen</h3><ul><li>Map of the FE's location relative to assigned stops</li><li>Status chips: New, FTP, Escalated, Expired</li><li>Summary bar with Dispatch ID and stop, PUR and shipment counts</li><li>“Nearby stops” sorted by current GPS</li></ul><p class="why">Less time searching, more time picking up.</p></div><figure class="shot"><div class="shot-slot" style="aspect-ratio:9 / 19" role="img" aria-label="Screenshot placeholder: Early home screen"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"></rect><circle cx="9" cy="10" r="2"></circle><path d="M21 16l-5-5-8 9"></path></svg><span>Early home screen</span></div><figcaption>Initial iteration</figcaption></figure></div>
+      <div class="it"><div><h3>Stop details</h3><ul><li>Map of every pickup point in the stop area</li><li>Clear time slots to plan the schedule</li><li>Address, expected shipments, navigate and call seller</li><li>A prominent Global Scan entry point</li></ul><p class="why">Less time per stop, higher pickup rate.</p></div><figure class="shot"><div class="shot-slot" style="aspect-ratio:9 / 19" role="img" aria-label="Screenshot placeholder: Early stop details"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"></rect><circle cx="9" cy="10" r="2"></circle><path d="M21 16l-5-5-8 9"></path></svg><span>Early stop details</span></div><figcaption>Initial iteration</figcaption></figure></div>
+    </div>
+    <div class="wide-slot"><figure class="shot"><div class="shot-slot" style="aspect-ratio:9 / 19" role="img" aria-label="Screenshot placeholder: Layout explorations"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"></rect><circle cx="9" cy="10" r="2"></circle><path d="M21 16l-5-5-8 9"></path></svg><span>Layout explorations</span></div><figcaption>Many layout combinations tried while sprucing up the legacy UI</figcaption></figure></div>
+  </section>
+</main>
+
+<div class="band"><div class="wrap">
+  <section class="sec" aria-labelledby="s8">
+    <div class="rule"><span class="rn">08</span><span>Final solution</span></div>
+    <h2 id="s8">Stops first, scanning in one step.</h2>
+    <div class="fins"><div class="fin"><div><span class="k">01</span><h3>Stops & sequencing</h3><p>Route sequencing is done stop-wise, not PUR-wise, and ordered by distance: closest first. Riders always know where to go next.</p></div><figure class="shot"><div class="shot-slot" style="aspect-ratio:9 / 19" role="img" aria-label="Screenshot placeholder: Stops list with sequence"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"></rect><circle cx="9" cy="10" r="2"></circle><path d="M21 16l-5-5-8 9"></path></svg><span>Stops list with sequence</span></div><figcaption>Stops list with sequence</figcaption></figure></div><div class="fin"><div><span class="k">02</span><h3>PUR view</h3><p>One listing of every pickup request inside a stop, with call and navigate straight to the seller in Google Maps.</p></div><figure class="shot"><div class="shot-slot" style="aspect-ratio:9 / 19" role="img" aria-label="Screenshot placeholder: PUR view inside a stop"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"></rect><circle cx="9" cy="10" r="2"></circle><path d="M21 16l-5-5-8 9"></path></svg><span>PUR view inside a stop</span></div><figcaption>PUR view inside a stop</figcaption></figure></div><div class="fin"><div><span class="k">03</span><h3>Map view</h3><p>Stops pinned on a map so FEs understand the system-planned route at a glance.</p></div><figure class="shot"><div class="shot-slot" style="aspect-ratio:9 / 19" role="img" aria-label="Screenshot placeholder: Map view of stops"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"></rect><circle cx="9" cy="10" r="2"></circle><path d="M21 16l-5-5-8 9"></path></svg><span>Map view of stops</span></div><figcaption>Map view of stops</figcaption></figure></div><div class="fin"><div><span class="k">04</span><h3>One-step scanning</h3><p>From four steps (search seller → open PUR → tap Start → scan) to one: scan, and the package maps itself to its PUR.</p></div><figure class="shot"><div class="shot-slot" style="aspect-ratio:9 / 19" role="img" aria-label="Screenshot placeholder: Global scan"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"></rect><circle cx="9" cy="10" r="2"></circle><path d="M21 16l-5-5-8 9"></path></svg><span>Global scan</span></div><figcaption>Global scan</figcaption></figure></div></div>
+  </section>
+</div></div>
+
+<div class="wrap">
+  <section class="sec" aria-labelledby="s9">
+    <div class="rule"><span class="rn">09</span><span>Pilot feedback</span></div>
+    <h2 id="s9">What riders told us in the pilot.</h2>
+    <ul class="quotes"><li><span class="qt">Stops</span><p>The concept is understood, but it will take some getting used to. FEs realised the list would be shorter, focusing more strongly on area-level information.</p></li><li><span class="qt">Slots</span><p>FEs here don't follow slots, so this won't affect them much. For a few sellers they know availability constraints and plan around them.</p></li><li><span class="qt">Sequencing</span><p>Expected to be especially useful for newer FEs.</p></li><li><span class="qt">Global scan</span><p>Strong enthusiasm: FEs said they'll no longer need to search for the PUR address, a big efficiency gain.</p></li></ul>
+  </section>
+</div>
+
+<div class="impact"><div class="wrap">
+  <section class="sec" aria-labelledby="s10">
+    <div class="rule"><span class="rn">10</span><span>Impact</span></div>
+    <h2 id="s10" style="color:#fff">Fewer places to visit, and riders following the route.</h2>
+    <div class="imps">
+      <div><b>44<small>→</small>32</b><p>Individual locations grouped into stops, with a decluttered home page.</p></div>
+      <div><b>36%</b><p>Of pickups followed the #1 recommended next stop.</p></div>
+      <div><b>66%</b><p>Were within the top 5 recommended stops.</p></div>
+    </div>
+  </section>
+</div></div>
+
+<div class="wrap">
+  <footer class="foot">
+    <p>Thanks for reading.</p>
+    <a href="index.html"><span aria-hidden="true">←</span> Back to home</a>
+  </footer>
+</div>
+
+<button class="tldr-btn" type="button" aria-expanded="false" aria-controls="tldr">TL;DR <span aria-hidden="true">✦</span></button>
+<section class="tldr-panel" id="tldr" role="dialog" aria-label="Case study summary" hidden>
+  <p class="tl-k">The 30-second version</p>
+  <h2>We moved Delhivery's First Mile rider app from a list of pickup requests to stop-based routes, for 8,967 riders.</h2>
+  <dl>
+    <div><dt>The problem</dt><dd>Riders planned routes from memory, re-planned for the 36% of pickups added mid-day, and searched for the right request before every scan.</dd></div>
+    <div><dt>What we did</dt><dd>Field shadowing and interviews, then stops that group nearby sellers, system sequencing, a map view, and one-step global scanning. I joined midway as an IC to learn the domain.</dd></div>
+    <div><dt>The result</dt><dd>44 locations became 32 stops; 36% of pickups followed the top recommended stop and 66% were in the top 5. Launched March 2026.</dd></div>
+  </dl>
+  <div class="tl-foot"><span>Kritima Arora · Design Manager</span><button class="tl-close" type="button">Close</button></div>
+</section>
+<script>
+(function () {
+  var bar = document.querySelector('.sitebar'), ticking = false;
+  function prog() { var h = document.documentElement, m = h.scrollHeight - innerHeight; bar.style.setProperty('--prog', m > 0 ? Math.min(1, Math.max(0, pageYOffset / m)) : 0); ticking = false; }
+  addEventListener('scroll', function () { if (!ticking) { ticking = true; requestAnimationFrame(prog); } }, { passive: true });
+  addEventListener('resize', prog); prog();
+  var tb = document.querySelector('.tldr-btn'), tp = document.getElementById('tldr'), tc = tp.querySelector('.tl-close');
+  function setT(open) { tp.hidden = !open; tb.setAttribute('aria-expanded', String(open)); tb.firstChild.nodeValue = open ? 'Close ' : 'TL;DR '; if (open) tc.focus(); }
+  tb.addEventListener('click', function () { setT(tp.hidden); });
+  tc.addEventListener('click', function () { setT(false); tb.focus(); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !tp.hidden) { setT(false); tb.focus(); } });
+  document.addEventListener('click', function (e) { if (!tp.hidden && !tp.contains(e.target) && !tb.contains(e.target)) setT(false); });
+})();
+</script>
+</body>
+</html>
