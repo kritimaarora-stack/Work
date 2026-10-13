@@ -421,7 +421,10 @@ html.gate-on .gate{display:flex}
 @media (max-width:520px){.sel h2{font-size:8.5vw!important}}
 /* very small phones: short switch labels so the bar fits */
 .s-sm{display:none}
-@media (max-width:389px){.s-lg{display:none}.s-sm{display:inline}}
+@media (max-width:399px){.s-lg{display:none}.s-sm{display:inline}}
+/* bar edges line up with the page content (1280 container, 20px gutter) */
+.mbar-in{max-width:1280px!important}
+@media (max-width:430px){.mswitch a{padding:8px 11px!important}}
 </style>
 <script>
 (function(){try{
@@ -467,7 +470,7 @@ html.gate-on .gate{display:flex}
 </div>
 <header class="mbar">
   <div class="mbar-in">
-    <a class="mme" href="index.html?view=choose">Kritima Arora<span class="mode">Complete story</span></a>
+    <a class="mme" href="index.html?view=choose">Kritima Arora</a>
     <div class="mswitch" role="navigation" aria-label="Portfolio version">
       <a href="5-minute.html" data-view="short"><span class="s-lg">Executive review</span><span class="s-sm">Review</span></a>
       <a href="index.html?view=full" aria-current="page"><span class="s-lg">Complete story</span><span class="s-sm">Full story</span></a>

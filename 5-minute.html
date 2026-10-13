@@ -251,14 +251,17 @@ a:focus-visible,button:focus-visible{outline-color:var(--d-ink)}
 @media (prefers-reduced-motion:reduce){.animate-jump{animation:none}}
 /* very small phones: short switch labels so the bar fits */
 .s-sm{display:none}
-@media (max-width:389px){.s-lg{display:none}.s-sm{display:inline}}
+@media (max-width:399px){.s-lg{display:none}.s-sm{display:inline}}
+/* same container as the complete story so bar and content align on both */
+.wrap{max-width:1280px!important}
+@media (max-width:430px){.switch a{padding:8px 11px!important}}
 </style>
 </head>
 <body>
 
 <header class="bar">
   <div class="wrap">
-    <a class="me" href="index.html?view=choose">Kritima Arora<span class="mode">Executive review</span></a>
+    <a class="me" href="index.html?view=choose">Kritima Arora</a>
     <nav class="switch" aria-label="Portfolio version">
       <a href="5-minute.html" aria-current="page"><span class="s-lg">Executive review</span><span class="s-sm">Review</span></a>
       <a href="index.html?view=full"><span class="s-lg">Complete story</span><span class="s-sm">Full story</span></a>
