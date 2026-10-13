@@ -387,6 +387,22 @@ html.gate-on .gate{display:flex}
 .top{margin-top:0!important;top:0!important;padding-top:calc(env(safe-area-inset-top,0px) + 12px);padding-bottom:12px}
 .hero{margin-top:clamp(64px,9vw,150px)!important}
 @media (max-width:1100px){.top{padding-top:calc(env(safe-area-inset-top,0px) + 10px)!important;padding-bottom:10px!important}}
+/* shared mode bar, identical to the executive review's top bar, pinned */
+.mbar{position:sticky;top:0;z-index:40;width:100%;align-self:stretch;background:rgba(14,22,19,.94);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);padding-top:env(safe-area-inset-top,0px)}
+.mbar-in{width:100%;max-width:1240px;margin:0 auto;padding:0 20px;min-height:60px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.mme{font-family:Inter,system-ui,sans-serif;font-weight:500;font-size:15px;letter-spacing:.02em;color:#f3efe6;text-decoration:none;white-space:nowrap}
+.mme .mode{font-weight:400;color:#8b968f;letter-spacing:.01em}
+.mme .mode::before{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;background:#80a690;margin:0 8px 2px 10px;box-shadow:0 0 0 4px rgba(128,166,144,.18)}
+@media (max-width:480px){.mme .mode{display:none}}
+.mswitch{display:inline-flex;border:1px solid rgba(255,255,255,.14);border-radius:999px;padding:3px;gap:2px;background:rgba(255,255,255,.05)}
+.mswitch a{font-family:Inter,system-ui,sans-serif;font-size:14px;font-weight:500;color:#b7c0ba;text-decoration:none;border-radius:999px;padding:8px 14px;line-height:1;white-space:nowrap}
+.mswitch a[aria-current]{background:#f3efe6;color:#0e1613}
+@media (hover:hover){.mswitch a:not([aria-current]):hover{background:rgba(255,255,255,.08);color:#f3efe6}}
+@media (max-width:420px){.mme{font-size:14px}.mswitch a{font-size:13px;padding:8px 10px}}
+.mbar a:focus-visible{outline:3px solid #f3efe6;outline-offset:3px}
+/* Home / Podcast / About now sit under the mode bar and scroll with the page */
+.top{position:static!important;box-shadow:none!important;min-height:0!important;padding:16px 0 0!important;margin:0!important}
+.hero{margin-top:clamp(56px,8vw,130px)!important}
 </style>
 <script>
 (function(){try{
@@ -430,6 +446,15 @@ html.gate-on .gate{display:flex}
     </div>
   </div>
 </div>
+<header class="mbar">
+  <div class="mbar-in">
+    <a class="mme" href="index.html?view=choose">Kritima Arora<span class="mode">Complete story</span></a>
+    <div class="mswitch" role="navigation" aria-label="Portfolio version">
+      <a href="5-minute.html" data-view="short">Executive review</a>
+      <a href="index.html?view=full" aria-current="page">Complete story</a>
+    </div>
+  </div>
+</header>
 <div class="wrap">
 <header class="top">
 <nav aria-label="Main">
@@ -437,10 +462,6 @@ html.gate-on .gate{display:flex}
   <a href="podcast.html">Podcast</a>
   <a href="about.html">About</a>
 </nav>
-<div class="vswitch" role="navigation" aria-label="Portfolio version">
-  <a href="5-minute.html" data-view="short">Executive review</a>
-  <a href="index.html?view=full" aria-current="page">Complete story</a>
-</div>
 </header>
 
 
@@ -620,7 +641,7 @@ html.gate-on .gate{display:flex}
 })();
 </script>
 <script>
-(function(){var a=document.querySelector('.vswitch [data-view="short"]');if(a)a.addEventListener("click",function(){try{sessionStorage.setItem("kaView","short");}catch(e){}});})();
+(function(){var a=document.querySelector('.mswitch [data-view="short"]');if(a)a.addEventListener("click",function(){try{sessionStorage.setItem("kaView","short");}catch(e){}});})();
 </script>
 <script>
 window.kaBrief=function(el){
@@ -634,7 +655,7 @@ window.kaBrief=function(el){
 };
 (function(){
   var reduce=window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches;
-  var a=document.querySelector('.vswitch [data-view="short"]');
+  var a=document.querySelector('.mswitch [data-view="short"]');
   if(a)a.addEventListener("click",function(e){if(reduce||e.metaKey||e.ctrlKey||e.shiftKey||e.button)return;e.preventDefault();window.kaBrief(a);});
   window.addEventListener("pageshow",function(e){if(!e.persisted)return;
     document.querySelectorAll(".brief-veil").forEach(function(v){v.remove();});
