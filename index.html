@@ -373,6 +373,16 @@ html.gate-on .gate{display:flex}
 @media (min-width:1101px){.vswitch{position:absolute;right:0;top:50%;transform:translateY(-50%)}}
 @media (max-width:1100px){.top{flex-wrap:wrap!important;row-gap:10px!important;padding:8px 0 10px}.vswitch{flex:0 0 auto}}
 @media (max-width:720px){.vswitch a{font-size:13px;padding:8px 12px}}
+/* transition into the executive briefing */
+.brief-veil{position:fixed;inset:0;z-index:400;background:#0e1613;color:#f3efe6;display:grid;place-items:center;text-align:center;clip-path:circle(0 at var(--x,50%) var(--y,50%));transition:clip-path .75s cubic-bezier(.7,0,.2,1);pointer-events:none}
+.brief-veil.go{clip-path:circle(150% at var(--x,50%) var(--y,50%))}
+.brief-veil .bv{opacity:0;transform:translateY(10px);transition:opacity .45s ease .38s,transform .6s cubic-bezier(.22,.9,.28,1) .38s}
+.brief-veil.go .bv{opacity:1;transform:none}
+.bv-k{display:inline-flex;align-items:center;gap:10px;font-family:Inter,system-ui,sans-serif;font-size:12px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:#a9cfb8}
+.bv-k::before{content:"";width:6px;height:6px;border-radius:50%;background:#80a690;box-shadow:0 0 0 4px rgba(128,166,144,.2)}
+.bv-t{margin:14px 0 0;font-family:Inter,system-ui,sans-serif;font-weight:600;font-size:clamp(30px,4vw,52px);line-height:1.05;letter-spacing:-.045em}
+.bv-s{margin:10px 0 0;font-family:Inter,system-ui,sans-serif;font-size:15px;color:#8b968f}
+@media (prefers-reduced-motion:reduce){.brief-veil,.brief-veil .bv{transition:none}}
 </style>
 <script>
 (function(){try{
@@ -589,8 +599,7 @@ html.gate-on .gate{display:flex}
   gate.querySelector('[data-view="short"]').addEventListener("click",function(e){
     remember("short");
     if(reduce||e.metaKey||e.ctrlKey||e.shiftKey)return;
-    e.preventDefault();var href=this.href;
-    gate.classList.add("leaving","to-short");setTimeout(function(){location.href=href;},380);
+    e.preventDefault();window.kaBrief(this);
   });
   gate.querySelector('[data-view="full"]').addEventListener("click",function(){
     remember("full");
@@ -608,6 +617,25 @@ html.gate-on .gate{display:flex}
 </script>
 <script>
 (function(){var a=document.querySelector('.vswitch [data-view="short"]');if(a)a.addEventListener("click",function(){try{sessionStorage.setItem("kaView","short");}catch(e){}});})();
+</script>
+<script>
+window.kaBrief=function(el){
+  var href=el.href,r=el.getBoundingClientRect(),v=document.createElement("div");
+  try{sessionStorage.setItem("kaView","short");}catch(e){}
+  v.className="brief-veil";v.setAttribute("aria-hidden","true");
+  v.style.setProperty("--x",(r.left+r.width/2)+"px");v.style.setProperty("--y",(r.top+r.height/2)+"px");
+  v.innerHTML='<div class="bv"><span class="bv-k">Executive briefing</span><p class="bv-t">Kritima Arora</p><p class="bv-s">5 minutes &middot; strengths and seven projects</p></div>';
+  document.body.appendChild(v);void v.offsetWidth;v.classList.add("go");
+  setTimeout(function(){location.href=href;},1250);
+};
+(function(){
+  var reduce=window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var a=document.querySelector('.vswitch [data-view="short"]');
+  if(a)a.addEventListener("click",function(e){if(reduce||e.metaKey||e.ctrlKey||e.shiftKey||e.button)return;e.preventDefault();window.kaBrief(a);});
+  window.addEventListener("pageshow",function(e){if(!e.persisted)return;
+    document.querySelectorAll(".brief-veil").forEach(function(v){v.remove();});
+    var g=document.getElementById("gate");if(g)g.classList.remove("leaving","to-short");});
+})();
 </script>
 </body>
 </html>

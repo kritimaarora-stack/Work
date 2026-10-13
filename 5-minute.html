@@ -9,6 +9,7 @@
 <meta property="og:title" content="Kritima Arora | The 5-minute version">
 <meta property="og:description" content="Product Design Manager at Delhivery. Strengths, impact and seven selected projects on one page.">
 <meta name="twitter:card" content="summary">
+<meta name="theme-color" content="#0e1613">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap" rel="stylesheet">
@@ -159,18 +160,77 @@ body{background:var(--bg)}
 .band .p:hover{background:linear-gradient(90deg,transparent,var(--bg) 8%,var(--bg) 92%,transparent)}
 .band .tag{background:rgba(255,255,255,.5)}
 @media (max-width:900px){.band .p:hover{background:none}}
+
+/* ===== Executive briefing: dark mode ===== */
+:root{color-scheme:dark;--d-bg:#0e1613;--d-bg2:#131e1a;--d-card:#17241f;--d-ink:#f3efe6;--d-ink2:#b7c0ba;--d-mute:#8b968f;--d-line:rgba(255,255,255,.1);--d-sage:#80a690;--d-sage-l:#a9cfb8;--d-peach:#e9a37b}
+html{background:var(--d-bg)}
+body{background:var(--d-bg);color:var(--d-ink)}
+a:focus-visible,button:focus-visible{outline-color:var(--d-ink)}
+.bar{background:rgba(14,22,19,.82);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px)}
+.bar.stuck{box-shadow:0 1px 0 var(--d-line)}
+.me{color:var(--d-ink)}
+.me .mode{font-weight:400;color:var(--d-mute);letter-spacing:.01em}
+.me .mode::before{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--d-sage);margin:0 8px 2px 10px;box-shadow:0 0 0 4px rgba(128,166,144,.18)}
+@media (max-width:480px){.me .mode{display:none}}
+.switch{background:rgba(255,255,255,.05);border-color:rgba(255,255,255,.14)}
+.switch a{color:var(--d-ink2)}
+.switch a[aria-current="page"]{background:var(--d-ink);color:var(--d-bg)}
+@media (hover:hover){.switch a:not([aria-current]):hover{background:rgba(255,255,255,.08);color:var(--d-ink)}}
+.prog{position:absolute;left:0;bottom:-1px;height:2px;width:100%;background:var(--d-sage);transform-origin:0 50%;transform:scaleX(0)}
+.hero h1{color:var(--d-ink)}
+.hl{background:var(--d-sage);color:var(--d-bg)}
+.who{color:var(--d-ink2)}.who b{color:var(--d-ink)}
+.sh h2{color:var(--d-ink)}
+.s,.s:nth-child(even){background:var(--d-card);box-shadow:inset 0 0 0 1px rgba(255,255,255,.05)}
+.s h3{color:var(--d-ink)}
+.s p,.s:nth-child(even) p{color:var(--d-ink2)}
+.num{background:rgba(255,255,255,.07);color:var(--d-ink)}
+.ev a{background:rgba(128,166,144,.15);color:var(--d-sage-l)}
+@media (hover:hover){.ev a:hover{background:var(--d-sage);color:var(--d-bg)}}
+.list,.band .list{border-top-color:var(--d-line)}
+.p,.band .p{border-bottom-color:var(--d-line)}
+.p h4{color:var(--d-ink)}
+.tag,.band .tag{color:var(--d-peach);border-color:rgba(233,163,123,.55);background:transparent}
+.p .what{color:var(--d-ink2)}
+.p .proof span{color:#dfe4e0}
+.p .proof strong{color:var(--d-sage-l);background:linear-gradient(transparent 62%,rgba(128,166,144,.26) 62%)}
+.p .proof .role{color:var(--d-mute)}
+.p .go{color:var(--d-ink)}
+.p:hover,.band .p:hover{background:linear-gradient(90deg,transparent,rgba(255,255,255,.035) 8%,rgba(255,255,255,.035) 92%,transparent)}
+.p:hover .go{color:var(--d-sage-l);text-decoration-color:var(--d-sage)}
+.band{background:var(--d-bg2)}
+.foot{background:var(--beige);color:var(--ink)}
+.foot h2{color:var(--ink)}
+.foot p{color:rgba(17,17,17,.7)}
+.btn-w{background:var(--ink);color:#fff}
+.btn-o{color:var(--ink);box-shadow:inset 0 0 0 1.5px var(--ink)}
+@media (hover:hover){.btn-w:hover{background:#2a2a2a}.btn-o:hover{background:rgba(0,0,0,.06)}}
+.social a{border-color:rgba(17,17,17,.5);color:var(--ink)}
+@media (hover:hover){.social a:hover{background:rgba(0,0,0,.06)}}
+.mail{color:var(--ink)}
+.foot a:focus-visible{outline-color:var(--ink)}
+/* entrance */
+@keyframes rise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+.hero h1,.hero .who,.strengths .sh,.sgrid .s{animation:rise .8s cubic-bezier(.22,.9,.28,1) both}
+.hero h1{animation-delay:.12s}.hero .who{animation-delay:.28s}.strengths .sh{animation-delay:.42s}
+.sgrid .s:nth-child(1){animation-delay:.52s}.sgrid .s:nth-child(2){animation-delay:.6s}.sgrid .s:nth-child(3){animation-delay:.68s}.sgrid .s:nth-child(4){animation-delay:.76s}
+/* light veil for leaving the briefing */
+.veil{position:fixed;inset:0;z-index:300;pointer-events:none;background:#fff;clip-path:circle(0 at var(--x,50%) var(--y,50%));transition:clip-path .7s cubic-bezier(.7,0,.2,1)}
+.veil.go{clip-path:circle(150% at var(--x,50%) var(--y,50%))}
+@media (prefers-reduced-motion:reduce){.hero h1,.hero .who,.strengths .sh,.sgrid .s{animation:none}.veil{transition:none}}
 </style>
 </head>
 <body>
 
 <header class="bar">
   <div class="wrap">
-    <a class="me" href="index.html?view=choose">Kritima Arora</a>
+    <a class="me" href="index.html?view=choose">Kritima Arora<span class="mode">Executive briefing</span></a>
     <nav class="switch" aria-label="Portfolio version">
       <a href="5-minute.html" aria-current="page">5-min version</a>
       <a href="index.html?view=full">Full portfolio</a>
     </nav>
   </div>
+  <span class="prog" aria-hidden="true"></span>
 </header>
 
 <main>
@@ -292,6 +352,24 @@ try{sessionStorage.setItem("kaView","short");}catch(e){}
   var bar=document.querySelector(".bar");if(!bar)return;
   function f(){bar.classList.toggle("stuck",window.pageYOffset>8);}
   window.addEventListener("scroll",f,{passive:true});f();
+})();
+</script>
+<script>
+(function(){
+  var prog=document.querySelector(".prog");
+  if(prog){var t=false;function upd(){var h=document.documentElement.scrollHeight-innerHeight;prog.style.transform="scaleX("+(h>0?Math.min(1,pageYOffset/h):0)+")";t=false;}
+    window.addEventListener("scroll",function(){if(!t){t=true;requestAnimationFrame(upd);}},{passive:true});upd();}
+  var reduce=window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches;
+  document.querySelectorAll('a[href^="index.html?view=full"]').forEach(function(a){
+    a.addEventListener("click",function(e){
+      if(reduce||e.metaKey||e.ctrlKey||e.shiftKey||e.button)return;
+      e.preventDefault();var r=a.getBoundingClientRect(),v=document.createElement("div");
+      v.className="veil";v.style.setProperty("--x",(r.left+r.width/2)+"px");v.style.setProperty("--y",(r.top+r.height/2)+"px");
+      document.body.appendChild(v);void v.offsetWidth;v.classList.add("go");
+      setTimeout(function(){location.href=a.href;},620);
+    });
+  });
+  window.addEventListener("pageshow",function(e){if(e.persisted)document.querySelectorAll(".veil").forEach(function(v){v.remove();});});
 })();
 </script>
 </body>
