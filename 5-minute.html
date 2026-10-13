@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Kritima Arora | The 5-minute version</title>
+<meta name="description" content="The 5-minute version of Kritima Arora's portfolio: strengths, impact and seven selected projects, for people short on time.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Kritima Arora | The 5-minute version">
+<meta property="og:description" content="Product Design Manager at Delhivery. Strengths, impact and seven selected projects on one page.">
+<meta name="twitter:card" content="summary">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#fff; --ink:#111; --ink2:#444; --mute:#5b5a57; --line:#e4e2de;
+  --orange:#d8814e; --teal:#176B5B; --sage:#80a690; --lav:#f0e5d2; --card:#f5eee2; --cream:#fbf7f0;
+  color-scheme:light;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%;scroll-padding-top:80px}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,sans-serif;overflow-x:clip}
+a{color:inherit}
+a:focus-visible,button:focus-visible{outline:3px solid #111;outline-offset:3px}
+.wrap{width:100%;max-width:1240px;margin:0 auto;padding:0 20px}
+
+/* sticky bar with the version switch, always visible */
+.bar{position:sticky;top:0;z-index:30;background:#fff;transition:box-shadow .15s}
+.bar.stuck{box-shadow:0 1px 0 var(--line)}
+.bar .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:60px}
+.me{font-weight:500;font-size:15px;letter-spacing:.02em;text-decoration:none;white-space:nowrap}
+.switch{display:inline-flex;border:1px solid var(--line);border-radius:999px;padding:3px;gap:2px;background:#fff}
+.switch a{font-size:14px;font-weight:500;color:#555;text-decoration:none;border-radius:999px;padding:8px 14px;line-height:1;white-space:nowrap}
+.switch a[aria-current="page"]{background:var(--ink);color:#fff}
+@media (hover:hover){.switch a:not([aria-current]):hover{background:#efeeec;color:#111}}
+@media (max-width:420px){.me{font-size:14px}.switch a{font-size:13px;padding:8px 10px}}
+
+/* hero */
+.hero{padding:clamp(36px,6vw,88px) 0 clamp(28px,4vw,48px)}
+.kick{display:inline-block;font-size:12px;font-weight:500;color:var(--teal);background:var(--lav);border-radius:999px;padding:5px 12px;margin:0 0 22px}
+.hero h1{margin:0;max-width:20ch;font-weight:600;font-size:clamp(34px,5.6vw,76px);line-height:1.04;letter-spacing:-.045em;text-wrap:balance}
+.hl{position:relative;display:inline;background:var(--lav);padding:0 .14em;box-decoration-break:clone;-webkit-box-decoration-break:clone;box-shadow:inset 3px 0 0 var(--orange),inset -3px 0 0 var(--orange)}
+.who{margin:clamp(20px,2.4vw,30px) 0 0;max-width:62ch;font-size:clamp(15px,1.3vw,18px);line-height:1.55;color:var(--ink2);font-weight:300}
+.who b{font-weight:500;color:var(--ink)}
+
+/* section heads */
+.sec{padding:clamp(36px,5vw,72px) 0}
+.sh{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:8px 40px;margin:0 0 clamp(20px,2.6vw,32px)}
+.sh h2{margin:0;font-weight:600;font-size:clamp(26px,3vw,40px);line-height:1.05;letter-spacing:-.04em}
+.sh p{margin:0;max-width:46ch;font-size:14px;line-height:1.5;color:var(--mute)}
+.num{display:block;font-size:12px;font-weight:500;color:var(--orange);letter-spacing:.02em;margin-bottom:8px}
+
+/* impact strip */
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.stat{background:var(--card);border-radius:22px;padding:22px 20px 20px;display:flex;flex-direction:column;gap:8px}
+.stat .v{font-weight:600;font-size:clamp(28px,2.8vw,40px);line-height:1;letter-spacing:-.04em;white-space:nowrap}
+.stat .v small{font-size:.55em;font-weight:500;letter-spacing:-.02em;color:var(--mute)}
+.stat .l{font-size:14px;line-height:1.45;color:var(--ink2)}
+.src{margin-top:auto;padding-top:6px;font-size:12px;line-height:1.4;color:var(--mute)}
+.src a{font-weight:500;color:var(--teal);text-underline-offset:2px}
+@media (max-width:980px){.stats{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:440px){.stats{grid-template-columns:1fr}}
+
+/* role chips: who did what */
+.r{display:inline-block;font-size:11px;font-weight:600;letter-spacing:.02em;border-radius:6px;padding:3px 7px;vertical-align:1px;white-space:nowrap}
+.r-led{background:var(--teal);color:#fff}
+.r-team{background:#fff;color:var(--teal);box-shadow:inset 0 0 0 1px var(--teal)}
+.r-ic{background:var(--lav);color:#7a4a2c}
+.key{display:flex;flex-wrap:wrap;gap:8px 16px;margin:16px 0 0;padding:0;list-style:none;font-size:12.5px;color:var(--mute)}
+.key li{display:flex;align-items:center;gap:6px}
+
+/* strengths */
+.strengths{background:var(--cream);margin:0 calc(50% - 50vw);padding-left:calc(50vw - 50%);padding-right:calc(50vw - 50%)}
+.sgrid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.s{background:#fff;border-radius:22px;padding:22px 20px;display:flex;flex-direction:column;gap:10px}
+.s h3{margin:0;font-weight:500;font-size:clamp(19px,1.6vw,22px);line-height:1.12;letter-spacing:-.03em}
+.s p{margin:0;font-size:14px;line-height:1.5;color:var(--ink2)}
+.ev{margin-top:auto;padding-top:6px;display:flex;flex-wrap:wrap;gap:6px}
+.ev a{font-size:12px;font-weight:500;color:var(--teal);background:var(--lav);border-radius:999px;padding:4px 10px;text-decoration:none}
+@media (hover:hover){.ev a:hover{background:var(--teal);color:#fff}}
+@media (max-width:1040px){.sgrid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:600px){.sgrid{grid-template-columns:1fr}}
+
+/* seven projects */
+.group{margin:0 0 clamp(28px,3.6vw,48px)}
+.group h3.gh{margin:0 0 4px;font-size:13px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--mute)}
+.list{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.p{position:relative;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1.4fr) minmax(0,1fr);gap:10px 32px;padding:22px 0;border-bottom:1px solid var(--line)}
+.p .t{display:flex;flex-direction:column;align-items:flex-start;gap:10px}
+.p h4{margin:0;font-weight:500;font-size:clamp(19px,1.6vw,22px);line-height:1.15;letter-spacing:-.03em}
+.p h4 a{text-decoration:none}
+.p h4 a::after{content:"";position:absolute;inset:0;z-index:1}
+.p:has(h4 a:focus-visible){outline:3px solid #111;outline-offset:4px}
+.p h4 a:focus-visible{outline:none}
+.tag{font-size:12px;font-weight:500;color:var(--orange);border:1px solid var(--orange);border-radius:999px;padding:4px 11px}
+.p .what{margin:0;font-size:15px;line-height:1.55;color:var(--ink2)}
+.p .proof{display:flex;flex-direction:column;gap:8px;font-size:14px;line-height:1.45}
+.p .proof strong{font-weight:600;color:var(--teal)}
+.p .proof .role{font-size:12.5px;color:var(--mute)}
+.p .go{font-size:13px;font-weight:600;text-decoration:underline;text-underline-offset:3px}
+.p:hover .go{color:var(--orange)}
+.p:hover{background:linear-gradient(90deg,transparent,var(--cream) 8%,var(--cream) 92%,transparent)}
+@media (max-width:900px){.p{grid-template-columns:1fr;gap:10px}.p:hover{background:none}}
+
+/* closing */
+.foot{background:var(--teal);color:#fff;text-align:center;padding:clamp(48px,6vw,88px) 20px calc(clamp(36px,4vw,58px) + env(safe-area-inset-bottom,0px))}
+.foot h2{margin:0 auto 16px;max-width:24ch;font-weight:600;font-size:clamp(28px,4vw,56px);line-height:1.04;letter-spacing:-.045em;text-wrap:balance}
+.foot p{margin:0 auto;max-width:56ch;font-size:clamp(15px,1.4vw,19px);line-height:1.5;color:rgba(255,255,255,.78)}
+.ctas{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:clamp(26px,3vw,40px)}
+.btn{display:inline-flex;align-items:center;gap:8px;font-size:15px;font-weight:500;text-decoration:none;border-radius:999px;padding:13px 22px;line-height:1}
+.btn-w{background:#fff;color:var(--teal)}
+.btn-o{color:#fff;box-shadow:inset 0 0 0 1px rgba(255,255,255,.7)}
+@media (hover:hover){.btn-w:hover{background:var(--lav)}.btn-o:hover{background:rgba(255,255,255,.14)}}
+.foot a:focus-visible{outline-color:#fff}
+.social{display:flex;justify-content:center;gap:14px;margin-top:clamp(30px,3.6vw,48px)}
+.social a{display:grid;place-items:center;width:46px;height:46px;border:1px solid rgba(255,255,255,.65);border-radius:50%;color:#fff}
+@media (hover:hover){.social a:hover{background:rgba(255,255,255,.14)}}
+.social svg{width:21px;height:21px;fill:none;stroke:currentColor;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round}
+.mail{display:inline-block;margin-top:18px;color:#fff;font-size:15px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<header class="bar">
+  <div class="wrap">
+    <a class="me" href="index.html?view=choose">Kritima Arora</a>
+    <nav class="switch" aria-label="Portfolio version">
+      <a href="5-minute.html" aria-current="page">5-min version</a>
+      <a href="index.html?view=full#work">Full portfolio</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<div class="wrap">
+
+  <section class="hero" aria-labelledby="intro">
+    <p class="kick">The 5-minute version</p>
+    <h1 id="intro">I turn complex operations into <span class="hl">simple products</span>, and redesign how teams build them.</h1>
+    <p class="who"><b>Product Design Manager at Delhivery</b>, leading 6 designers across First Mile, Mid Mile, Last Mile, Returns and HRMS. Before that, Design Manager at Upstox, where I also ran design systems for 8+ products. 10+ years across logistics, fintech and e-commerce.</p>
+  </section>
+
+  <section class="sec" aria-labelledby="impact" style="padding-top:0">
+    <div class="sh">
+      <h2 id="impact">Impact, in numbers</h2>
+      <p>Every number comes from a case study, with who did the work.</p>
+    </div>
+    <div class="stats">
+      <article class="stat">
+        <span class="v">13%→37%</span>
+        <span class="l">30-day activation for new investors who saw the onboarding</span>
+        <span class="src"><span class="r r-led">Led</span> · <a href="stocks-ftue.html">Stocks, Upstox</a></span>
+      </article>
+      <article class="stat">
+        <span class="v">₹5.58L</span>
+        <span class="l">Estimated ad-hoc vehicle spend saved in the first two weeks, now live in 196 centres</span>
+        <span class="src"><span class="r r-led">Led design</span> · <a href="fleet-management.html">Fleet, Delhivery</a></span>
+      </article>
+      <article class="stat">
+        <span class="v">8→3.5 <small>days</small></span>
+        <span class="l">Design-to-dev handoff on medium roadmap items; ~1 month → 12 days on large ones</span>
+        <span class="src"><span class="r r-led">Led</span> · <a href="design-unblocked.html">Design, Unblocked</a></span>
+      </article>
+      <article class="stat">
+        <span class="v">8,967</span>
+        <span class="l">Field riders across 2,848 centres on a rebuilt, stop-based pickup app</span>
+        <span class="src"><span class="r r-team">Team</span> · <a href="first-mile.html">First Mile, Delhivery</a></span>
+      </article>
+    </div>
+    <ul class="key" aria-label="Role key">
+      <li><span class="r r-led">Led</span> I owned the direction and outcome</li>
+      <li><span class="r r-ic">IC</span> I did the hands-on design</li>
+      <li><span class="r r-team">Team</span> A team result I contributed to and guided</li>
+    </ul>
+  </section>
+
+  <section class="sec strengths" aria-labelledby="good-at">
+    <div class="sh">
+      <h2 id="good-at">What I'm exceptionally good at</h2>
+      <p>Four strengths that show up across the work, and where to see them.</p>
+    </div>
+    <div class="sgrid">
+      <article class="s">
+        <span class="num">01</span>
+        <h3>Making operational complexity usable</h3>
+        <p>I start where the work happens: facility visits, rider shadowing. Then I collapse many-step workflows into the one decision that matters.</p>
+        <div class="ev"><a href="fleet-management.html">Fleet</a><a href="first-mile.html">First Mile</a><a href="ipo.html">IPO</a></div>
+      </article>
+      <article class="s">
+        <span class="num">02</span>
+        <h3>Redesigning how design gets done, with AI</h3>
+        <p>Not AI demos: operating models. Tiered intake, PMs prototyping inside the design system, and agents my designers built without engineers.</p>
+        <div class="ev"><a href="design-unblocked.html">Design, Unblocked</a><a href="onboarding-flow-generator.html">Flow Generator</a></div>
+      </article>
+      <article class="s">
+        <span class="num">03</span>
+        <h3>Building systems that scale</h3>
+        <p>Design systems for 8+ products at Upstox; now bringing tokens and a shared system to 20+ Delhivery products built without one.</p>
+        <div class="ev"><a href="design-tokens.html">Design Tokens</a><a href="about.html">Experience</a></div>
+      </article>
+      <article class="s">
+        <span class="num">04</span>
+        <h3>Tying design to business numbers</h3>
+        <p>I frame problems in the terms leaders fund, like rupees of ad-hoc spend or first-trade activation, then measure the result.</p>
+        <div class="ev"><a href="stocks-ftue.html">Stocks</a><a href="fleet-management.html">Fleet</a></div>
+      </article>
+    </div>
+  </section>
+
+  <section class="sec" aria-labelledby="seven">
+    <div class="sh">
+      <h2 id="seven">Seven projects, one line each</h2>
+      <p>Each row opens the full case study. Every case study also has a 30-second TL;DR button.</p>
+    </div>
+
+    <div class="group">
+      <h3 class="gh">Products I've shipped</h3>
+      <ul class="list">
+        <li class="p">
+          <div class="t"><h4><a href="fleet-management.html">Intelligent Fleet Management at Delhivery's Facilities</a></h4><span class="tag">Leadership</span></div>
+          <p class="what">Ops kept hiring vehicles the network already had. I reframed the brief from "book a vehicle" to "use the capacity we have", making sharing the default.</p>
+          <div class="proof"><span><strong>₹5.58L</strong> est. saved in 2 weeks · <strong>+6.4%</strong> utilisation in top 10 centres · <strong>196</strong> centres live</span><span class="role"><span class="r r-led">Led design</span> 1 designer, PM and Product Director · ~3 months</span><span class="go">Read case study →</span></div>
+        </li>
+        <li class="p">
+          <div class="t"><h4><a href="stocks-ftue.html">Stocks: First-Time Users from Onboarding to Activation</a></h4><span class="tag">IC Work</span></div>
+          <p class="what">200,000+ new accounts a month, few first trades. I designed one entry for three investor types and a calmer, guided first order.</p>
+          <div class="proof"><span>Activation <strong>13% → 37%</strong> · retention <strong>62% → 74%</strong> for users who saw it</span><span class="role"><span class="r r-led">Led</span><span class="r r-ic">IC</span> End to end, in 3 weeks</span><span class="go">Read case study →</span></div>
+        </li>
+        <li class="p">
+          <div class="t"><h4><a href="first-mile.html">Re-iterating Delhivery's First Mile Rider App for Scale</a></h4><span class="tag">IC Work + Leadership</span></div>
+          <p class="what">Riders planned routes from memory and searched for every pickup. We moved them to sequenced stops and one-step scanning.</p>
+          <div class="proof"><span><strong>8,967</strong> riders · <strong>44 → 32</strong> locations grouped into stops · <strong>66%</strong> of pickups within top-5 suggested stops</span><span class="role"><span class="r r-team">Team</span><span class="r r-ic">IC</span> Joined midway hands-on to learn the domain; set direction and pilots</span><span class="go">Read case study →</span></div>
+        </li>
+        <li class="p">
+          <div class="t"><h4><a href="ipo.html">Elevating IPO for improved activation and retention</a></h4><span class="tag">IC Work</span></div>
+          <p class="what">In hot markets, IPO drove ~4,500 support tickets a month. I traced them to discovery, status and missing information, and redesigned for each.</p>
+          <div class="proof"><span>Live on Upstox · goals set: <strong>~80%</strong> fewer tickets, <strong>3×</strong> IPO revenue</span><span class="role"><span class="r r-led">Led</span><span class="r r-ic">IC</span> End to end with one other designer · 3 months</span><span class="go">Read case study →</span></div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="group" style="margin-bottom:0">
+      <h3 class="gh">How I scale design</h3>
+      <ul class="list">
+        <li class="p">
+          <div class="t"><h4><a href="design-unblocked.html">Design, Unblocked — Scaling design through AI</a></h4><span class="tag">AI Enablement</span></div>
+          <p class="what">Five designers, twenty PMs, one queue. I tiered the work and taught PMs to prototype with AI inside our design system.</p>
+          <div class="proof"><span>Handoff <strong>8 → 3.5 days</strong> (medium), <strong>~1 month → 12 days</strong> (large) · VP of Product asked to scale it across pods</span><span class="role"><span class="r r-led">Led</span> Tracked across 4 projects over 4 months</span><span class="go">Read case study →</span></div>
+        </li>
+        <li class="p">
+          <div class="t"><h4><a href="onboarding-flow-generator.html">AI assisted Onboarding Flow Generator</a></h4><span class="tag">AI Tooling</span></div>
+          <p class="what">Teams kept redesigning onboarding from zero. My designers and I built a multi-agent system that starts every flow from what we've learned.</p>
+          <div class="proof"><span>Built in Kiro with <strong>no engineers</strong> · used to draft onboarding for our HR system</span><span class="role"><span class="r r-led">Led</span> Built with designers on my team · working prototype</span><span class="go">Read case study →</span></div>
+        </li>
+        <li class="p">
+          <div class="t"><h4><a href="design-tokens.html">Design Tokens — Design × Developer handshake</a></h4><span class="tag">Team Enablement</span></div>
+          <p class="what">20+ products in my pod looked like different companies. I made design tokens the shared language between Design and Engineering.</p>
+          <div class="proof"><span>A Design Spotlight talk for Design, Product and Engineering · design system adoption on legacy products now underway</span><span class="role"><span class="r r-led">Led</span> Presented with designers from my team</span><span class="go">Read case study →</span></div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+</div>
+</main>
+
+<footer class="foot">
+  <h2>Complex products. Growing teams. Better systems.</h2>
+  <p>I'm most useful where products are operationally heavy and design has to scale: making the work simple for users, and the workflow faster for the team.</p>
+  <div class="ctas">
+    <a class="btn btn-w" href="index.html?view=full#work">Explore the full portfolio →</a>
+    <a class="btn btn-o" href="mailto:kritimaarora18@gmail.com">Email me</a>
+  </div>
+  <div class="social">
+    <a href="https://www.linkedin.com/in/kritimaarora-designer/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg></a>
+    <a href="https://www.youtube.com/@kritimaarora" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17"/><path d="m10 15 5-3-5-3z"/></svg></a>
+    <a href="https://www.instagram.com/kritimaarora/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg></a>
+  </div>
+  <a class="mail" href="mailto:kritimaarora18@gmail.com">kritimaarora18@gmail.com</a>
+</footer>
+
+<script>
+try{sessionStorage.setItem("kaView","short");}catch(e){}
+(function(){
+  var bar=document.querySelector(".bar");if(!bar)return;
+  function f(){bar.classList.toggle("stuck",window.pageYOffset>8);}
+  window.addEventListener("scroll",f,{passive:true});f();
+})();
+</script>
+</body>
+</html>
