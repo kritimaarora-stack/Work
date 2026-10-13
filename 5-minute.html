@@ -68,7 +68,7 @@ a:focus-visible,button:focus-visible{outline:3px solid #111;outline-offset:3px}
 .r-led{background:var(--teal);color:#fff}
 .r-team{background:#fff;color:var(--teal);box-shadow:inset 0 0 0 1px var(--teal)}
 .r-ic{background:var(--lav);color:#7a4a2c}
-.key{display:flex;flex-wrap:wrap;gap:8px 16px;margin:16px 0 0;padding:0;list-style:none;font-size:12.5px;color:var(--mute)}
+.key{display:flex;flex-wrap:wrap;gap:8px 16px;margin:-8px 0 clamp(22px,2.6vw,30px);padding:0;list-style:none;font-size:12.5px;color:var(--mute)}
 .key li{display:flex;align-items:center;gap:6px}
 
 /* strengths */
@@ -170,40 +170,7 @@ body{background:var(--bg)}
 <main>
 <div class="wrap">
 
-  <section class="sec" aria-labelledby="impact" style="padding-top:clamp(32px,4.5vw,64px)">
-    <div class="sh">
-      <h2 id="impact">Impact, in numbers</h2>
-    </div>
-    <div class="stats">
-      <article class="stat">
-        <span class="v">13%→37%</span>
-        <span class="l">30-day activation for new investors who saw the onboarding</span>
-        <span class="src"><span class="r r-led">Led</span> · <a href="stocks-ftue.html">Stocks, Upstox</a></span>
-      </article>
-      <article class="stat">
-        <span class="v">₹5.58L</span>
-        <span class="l">Estimated ad-hoc vehicle spend saved in the first two weeks, now live in 196 centres</span>
-        <span class="src"><span class="r r-led">Led design</span> · <a href="fleet-management.html">Fleet, Delhivery</a></span>
-      </article>
-      <article class="stat">
-        <span class="v">8→3.5 <small>days</small></span>
-        <span class="l">Design-to-dev handoff on medium roadmap items; ~1 month → 12 days on large ones</span>
-        <span class="src"><span class="r r-led">Led</span> · <a href="design-unblocked.html">Design, Unblocked</a></span>
-      </article>
-      <article class="stat">
-        <span class="v">8,967</span>
-        <span class="l">Field riders across 2,848 centres on a rebuilt, stop-based pickup app</span>
-        <span class="src"><span class="r r-team">Team</span> · <a href="first-mile.html">First Mile, Delhivery</a></span>
-      </article>
-    </div>
-    <ul class="key" aria-label="Role key">
-      <li><span class="r r-led">Led</span> I owned the direction and outcome</li>
-      <li><span class="r r-ic">IC</span> I did the hands-on design</li>
-      <li><span class="r r-team">Team</span> A team result I contributed to and guided</li>
-    </ul>
-  </section>
-
-  <section class="sec strengths" aria-labelledby="good-at">
+  <section class="sec strengths" aria-labelledby="good-at" style="padding-top:clamp(32px,4.5vw,64px)">
     <div class="sh">
       <h2 id="good-at">What I'm exceptionally good at</h2>
       <p>Four strengths that show up across the work, and where to see them.</p>
@@ -241,6 +208,11 @@ body{background:var(--bg)}
       <h2 id="seven">Seven projects, one line each</h2>
       <p>Each row opens the full case study. Every case study also has a 30-second TL;DR button.</p>
     </div>
+    <ul class="key" aria-label="Role key">
+      <li><span class="r r-led">Led</span> I owned the direction and outcome</li>
+      <li><span class="r r-ic">IC</span> I did the hands-on design</li>
+      <li><span class="r r-team">Team</span> A team result I contributed to and guided</li>
+    </ul>
 
     <div class="group">
       <h3 class="gh">Products I've shipped</h3>
