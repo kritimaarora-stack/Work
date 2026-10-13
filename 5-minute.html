@@ -255,6 +255,11 @@ a:focus-visible,button:focus-visible{outline-color:var(--d-ink)}
 /* same container as the complete story so bar and content align on both */
 .wrap{max-width:1280px!important}
 @media (max-width:430px){.switch a{padding:8px 11px!important}}
+.vh{position:absolute!important;width:1px;height:1px;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+/* intro without the headline: bio leads, tighter rhythm */
+.hero{padding:clamp(40px,5vw,72px) 0 0!important}
+.hero .who{margin:0!important;font-size:clamp(16px,1.35vw,19px)!important;line-height:1.6!important;max-width:58ch!important}
+.strengths{padding-top:clamp(48px,6vw,80px)!important}
 </style>
 </head>
 <body>
@@ -274,31 +279,27 @@ a:focus-visible,button:focus-visible{outline-color:var(--d-ink)}
 <div class="wrap">
 
   <section class="hero" aria-labelledby="intro">
-    <h1 id="intro">I turn complex operations into <span class="hl">simple products</span>, and orchestrate how teams build them.</h1>
-    <p class="who"><b>Product Design Manager at Delhivery</b>, leading a team of 6. Previously Design Manager at Upstox. 10+ years across logistics, fintech and e-commerce.</p>
+    <h1 id="intro" class="vh">Kritima Arora: executive review</h1>
+    <p class="who"><b>Product Design Manager at Delhivery</b>, leading a team of 6. Previously Design Manager at Upstox. 10+ years across logistics, fintech and e&#8209;commerce.</p>
   </section>
 
   <section class="sec strengths" aria-labelledby="good-at">
-    <div class="sh"><div><span class="q">01</span><h2 id="good-at">What I'm exceptional at</h2></div><p>The capabilities that set me apart from a conventional product designer.</p></div>
+    <div class="sh"><div><span class="q">01</span><h2 id="good-at">What I'm exceptional at</h2></div></div>
     <div class="sgrid">
       <article class="s">
         <h3>Making operational complexity usable</h3>
-        <p>Field research first, then many-step workflows cut down to the one decision that matters.</p>
         <div class="ev"><a href="fleet-management.html">Fleet</a><a href="first-mile.html">First Mile</a><a href="ipo.html">IPO</a></div>
       </article>
       <article class="s">
         <h3>Redesigning how design gets done, with AI</h3>
-        <p>Operating models, not demos: tiered intake, PMs prototyping in the design system, agents built without engineers.</p>
         <div class="ev"><a href="design-unblocked.html">Design, Unblocked</a><a href="onboarding-flow-generator.html">Flow Generator</a></div>
       </article>
       <article class="s">
         <h3>Building systems that scale</h3>
-        <p>Design systems for 8+ products at Upstox; now bringing tokens to 20+ Delhivery products.</p>
         <div class="ev"><a href="design-tokens.html">Design Tokens</a><a href="about.html">Experience</a></div>
       </article>
       <article class="s">
         <h3>Tying design to business numbers</h3>
-        <p>I frame design problems in business terms, like rupees saved or more users activated, and then measure the result.</p>
         <div class="ev"><a href="stocks-ftue.html">Stocks</a><a href="fleet-management.html">Fleet</a></div>
       </article>
     </div>
