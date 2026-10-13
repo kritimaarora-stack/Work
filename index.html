@@ -403,6 +403,16 @@ html.gate-on .gate{display:flex}
 /* Home / Podcast / About now sit under the mode bar and scroll with the page */
 .top{position:static!important;box-shadow:none!important;min-height:0!important;padding:16px 0 0!important;margin:0!important}
 .hero{margin-top:clamp(56px,8vw,130px)!important}
+/* light mode bar for the complete story */
+.mbar{background:#fff;box-shadow:0 1px 0 #ece9e3}
+.mme{color:#111}
+.mme .mode{color:#7a7874}
+.mme .mode::before{background:#176B5B;box-shadow:0 0 0 4px rgba(23,107,91,.12)}
+.mswitch{background:#fff;border-color:#e4e2de}
+.mswitch a{color:#555}
+.mswitch a[aria-current]{background:#111;color:#fff}
+@media (hover:hover){.mswitch a:not([aria-current]):hover{background:#efeeec;color:#111}}
+.mbar a:focus-visible{outline-color:#111}
 </style>
 <script>
 (function(){try{
