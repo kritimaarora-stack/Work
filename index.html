@@ -344,19 +344,27 @@ html.gate-on .gate{display:flex}
 @keyframes g-drift{to{transform:translate3d(-4%,2%,0) scale(1.06)}}
 .g-grain{position:absolute;inset:0;z-index:-2;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .6 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-size:180px;opacity:.38;mix-blend-mode:soft-light;pointer-events:none}
 .g-sky::before{content:"";position:absolute;left:0;right:0;top:0;height:42%;z-index:-1;background:linear-gradient(#fff,rgba(255,255,255,.75) 35%,rgba(255,255,255,0));pointer-events:none}
-.g-cards{width:100%;max-width:920px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
-.g-card{position:relative;display:flex;flex-direction:column;gap:10px;padding:clamp(22px,2.4vw,30px);border-radius:26px;background:rgba(255,255,255,.72);-webkit-backdrop-filter:blur(16px) saturate(1.2);backdrop-filter:blur(16px) saturate(1.2);border:1px solid rgba(255,255,255,.85);box-shadow:0 18px 40px rgba(30,70,140,.16),0 2px 6px rgba(30,70,140,.08);color:#111;text-decoration:none;text-align:left;font:inherit;cursor:pointer;transition:transform .25s ease,box-shadow .25s ease,background .25s ease}
-.g-time{align-self:flex-start;font-size:12px;font-weight:600;letter-spacing:.02em;border-radius:999px;padding:5px 12px;background:#f0e5d2;color:#176B5B}
-.g-b .g-time{background:#fff;color:#d8814e;box-shadow:inset 0 0 0 1px #d8814e}
-.g-card h2{margin:6px 0 0;font-weight:600;font-size:clamp(26px,2.6vw,36px);line-height:1.02;letter-spacing:-.045em}
-.g-card p{margin:0;max-width:36ch;font-size:15px;line-height:1.5;color:#444}
-.g-go{margin-top:14px;align-self:flex-start;display:inline-flex;align-items:center;gap:10px;font-size:15px;font-weight:600;color:#fff;background:#176B5B;border-radius:999px;padding:12px 18px;box-shadow:inset 0 -2px 0 rgba(0,0,0,.18)}
-.g-b .g-go{background:#111}
+.g-switch{width:100%;max-width:560px;padding:10px;border-radius:30px;background:rgba(255,255,255,.72);-webkit-backdrop-filter:blur(16px) saturate(1.2);backdrop-filter:blur(16px) saturate(1.2);border:1px solid rgba(255,255,255,.85);box-shadow:0 18px 40px rgba(30,80,60,.16),0 2px 6px rgba(30,80,60,.08);text-align:left}
+.g-seg{position:relative;display:grid;grid-template-columns:1fr 1fr;padding:4px;border-radius:999px;background:rgba(17,17,17,.06)}
+.g-thumb{position:absolute;top:4px;bottom:4px;left:4px;width:calc(50% - 4px);border-radius:999px;background:#fff;box-shadow:0 2px 8px rgba(0,0,0,.12),0 1px 2px rgba(0,0,0,.08);transition:transform .45s cubic-bezier(.22,.9,.28,1)}
+.g-seg[data-mode="full"] .g-thumb{transform:translateX(100%)}
+.g-opt{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:2px;border:0;background:none;font:inherit;cursor:pointer;padding:11px 10px;border-radius:999px;color:#666;transition:color .25s}
+.g-opt b{font-size:15px;font-weight:600;letter-spacing:-.01em}
+.g-opt small{font-size:12px;color:inherit;opacity:.8}
+.g-opt[aria-checked="true"]{color:#111}
+.g-opt:focus-visible{outline:3px solid #176B5B;outline-offset:2px}
+.g-panels{display:grid;padding:clamp(18px,2.4vw,26px) clamp(16px,2.2vw,24px) clamp(14px,2vw,20px)}
+.g-panel{grid-area:1/1;display:flex;flex-direction:column;align-items:flex-start;gap:10px;transition:opacity .35s ease,transform .35s ease}
+.g-panel[aria-hidden="true"]{opacity:0;transform:translateY(6px);visibility:hidden;pointer-events:none}
+.g-panel h2{margin:0;font-weight:600;font-size:clamp(26px,2.6vw,34px);line-height:1.02;letter-spacing:-.045em;color:#111}
+.g-panel p{margin:0;max-width:40ch;font-size:15px;line-height:1.5;color:#444}
+.g-go{margin-top:12px;display:inline-flex;align-items:center;gap:10px;font:inherit;font-size:15px;font-weight:600;color:#fff;background:#176B5B;border:0;border-radius:999px;padding:13px 20px;cursor:pointer;text-decoration:none;box-shadow:inset 0 -2px 0 rgba(0,0,0,.18);transition:transform .2s ease,background .2s}
+.g-panel[data-panel="full"] .g-go{background:#111}
 .g-go svg{width:18px;height:18px;transition:transform .25s ease}
-@media (hover:hover){.g-card:hover{transform:translateY(-5px);background:rgba(255,255,255,.86);box-shadow:0 24px 50px rgba(30,70,140,.22),0 2px 6px rgba(30,70,140,.08)}.g-card:hover .g-go svg{transform:translateX(4px)}}
-.g-card:focus-visible{outline:3px solid #111;outline-offset:4px}
-@media (max-width:640px){.g-cards{grid-template-columns:1fr;gap:12px}.g-q{font-size:clamp(38px,12vw,56px)}.g-sky{align-items:flex-start;padding-top:56px}}
-@media (prefers-reduced-motion:reduce){.gate,.g-card,.g-go svg{transition:none}.g-clouds{animation:none}}
+@media (hover:hover){.g-go:hover{transform:translateY(-2px)}.g-go:hover svg{transform:translateX(4px)}.g-opt[aria-checked="false"]:hover{color:#111}}
+.g-go:focus-visible{outline:3px solid #111;outline-offset:3px}
+@media (max-width:640px){.g-q{font-size:clamp(38px,12vw,56px)}.g-sky{align-items:flex-start;padding-top:56px}.g-opt b{font-size:14px}}
+@media (prefers-reduced-motion:reduce){.gate,.g-thumb,.g-panel,.g-go,.g-go svg,.g-opt{transition:none}.g-clouds{animation:none}}
 </style>
 <script>
 (function(){try{
@@ -379,19 +387,24 @@ html.gate-on .gate{display:flex}
   <div class="g-sky">
     <div class="g-clouds" aria-hidden="true"></div>
     <div class="g-grain" aria-hidden="true"></div>
-    <div class="g-cards">
-      <a class="g-card g-a" href="5-minute.html" data-view="short">
-        <span class="g-time">5 minutes</span>
-        <h2>The one-pager</h2>
-        <p>What I'm best at, the impact in numbers, and all seven projects in a line each.</p>
-        <span class="g-go">Read the one-pager <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-      </a>
-      <button type="button" class="g-card g-b" data-view="full">
-        <span class="g-time">As long as you like</span>
-        <h2>The full portfolio</h2>
-        <p>Complete case studies, process and decisions, plus my experiments building with AI.</p>
-        <span class="g-go">Enter the portfolio <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-      </button>
+    <div class="g-switch">
+      <div class="g-seg" role="radiogroup" aria-label="Choose a version" data-mode="short">
+        <span class="g-thumb" aria-hidden="true"></span>
+        <button type="button" class="g-opt" role="radio" aria-checked="true" data-mode="short"><b>5 minutes</b><small>The one-pager</small></button>
+        <button type="button" class="g-opt" role="radio" aria-checked="false" tabindex="-1" data-mode="full"><b>As long as you like</b><small>The full portfolio</small></button>
+      </div>
+      <div class="g-panels">
+        <div class="g-panel" data-panel="short" aria-hidden="false">
+          <h2>The one-pager</h2>
+          <p>What I'm best at, the impact in numbers, and all seven projects in a line each.</p>
+          <a class="g-go" href="5-minute.html" data-view="short">Read the one-pager <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+        <div class="g-panel" data-panel="full" aria-hidden="true">
+          <h2>The full portfolio</h2>
+          <p>Complete case studies, process and decisions, plus my experiments building with AI.</p>
+          <button type="button" class="g-go" data-view="full" tabindex="-1">Enter the portfolio <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+        </div>
+      </div>
     </div>
   </div>
 </div>
@@ -549,7 +562,18 @@ html.gate-on .gate{display:flex}
   var root=document.documentElement,gate=document.getElementById("gate");
   if(!gate||!root.classList.contains("gate-on"))return;
   var reduce=window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var seg=gate.querySelector(".g-seg"),opts=gate.querySelectorAll(".g-opt"),panels=gate.querySelectorAll(".g-panel");
   function remember(v){try{sessionStorage.setItem("kaView",v);}catch(e){}}
+  function pick(mode,focus){
+    seg.setAttribute("data-mode",mode);
+    opts.forEach(function(o){var on=o.getAttribute("data-mode")===mode;o.setAttribute("aria-checked",on);o.tabIndex=on?0:-1;if(on&&focus)o.focus();});
+    panels.forEach(function(p){var on=p.getAttribute("data-panel")===mode;p.setAttribute("aria-hidden",!on);p.querySelector(".g-go").tabIndex=on?0:-1;});
+  }
+  opts.forEach(function(o){o.addEventListener("click",function(){pick(o.getAttribute("data-mode"));});});
+  seg.addEventListener("keydown",function(e){
+    if(["ArrowLeft","ArrowRight","ArrowUp","ArrowDown"].indexOf(e.key)<0)return;
+    e.preventDefault();pick(seg.getAttribute("data-mode")==="short"?"full":"short",true);
+  });
   gate.querySelector('[data-view="short"]').addEventListener("click",function(e){
     remember("short");
     if(reduce||e.metaKey||e.ctrlKey||e.shiftKey)return;
@@ -564,7 +588,7 @@ html.gate-on .gate{display:flex}
   });
   gate.addEventListener("keydown",function(e){
     if(e.key!=="Tab")return;
-    var f=gate.querySelectorAll(".g-card"),a=f[0],z=f[f.length-1];
+    var f=[].filter.call(gate.querySelectorAll("button,a"),function(x){return x.tabIndex>=0;}),a=f[0],z=f[f.length-1];
     if(e.shiftKey&&document.activeElement===a){e.preventDefault();z.focus();}
     else if(!e.shiftKey&&document.activeElement===z){e.preventDefault();a.focus();}
   });
