@@ -365,6 +365,14 @@ html.gate-on .gate{display:flex}
 .g-go:focus-visible{outline:3px solid #111;outline-offset:3px}
 @media (max-width:640px){.g-q{font-size:clamp(30px,9vw,40px)}.g-sky{padding-top:18px}.g-opt b{font-size:14px}}
 @media (prefers-reduced-motion:reduce){.gate,.g-thumb,.g-panel,.g-go,.g-go svg,.g-opt{transition:none}.g-clouds{animation:none}}
+/* version switch in the top bar */
+.vswitch{display:inline-flex;border:1px solid #e4e2de;border-radius:999px;padding:3px;gap:2px;background:#fff}
+.vswitch a{font-family:Inter,system-ui,sans-serif;font-size:14px;font-weight:500;color:#555;text-decoration:none;border-radius:999px;padding:8px 14px;line-height:1;white-space:nowrap}
+.vswitch a[aria-current]{background:#111;color:#fff}
+@media (hover:hover){.vswitch a:not([aria-current]):hover{background:#efeeec;color:#111}}
+@media (min-width:1101px){.vswitch{position:absolute;right:0;top:50%;transform:translateY(-50%)}}
+@media (max-width:1100px){.top{flex-wrap:wrap!important;row-gap:10px!important;padding:8px 0 10px}.vswitch{flex:0 0 auto}}
+@media (max-width:720px){.vswitch a{font-size:13px;padding:8px 12px}}
 </style>
 <script>
 (function(){try{
@@ -415,6 +423,10 @@ html.gate-on .gate{display:flex}
   <a href="podcast.html">Podcast</a>
   <a href="about.html">About</a>
 </nav>
+<div class="vswitch" role="navigation" aria-label="Portfolio version">
+  <a href="5-minute.html" data-view="short">5-min version</a>
+  <a href="index.html?view=full" aria-current="page">Full portfolio</a>
+</div>
 </header>
 
 
@@ -593,6 +605,9 @@ html.gate-on .gate{display:flex}
     else if(!e.shiftKey&&document.activeElement===z){e.preventDefault();a.focus();}
   });
 })();
+</script>
+<script>
+(function(){var a=document.querySelector('.vswitch [data-view="short"]');if(a)a.addEventListener("click",function(){try{sessionStorage.setItem("kaView","short");}catch(e){}});})();
 </script>
 </body>
 </html>
