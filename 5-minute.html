@@ -153,6 +153,12 @@ body{background:var(--bg)}
 @media (hover:hover){.social a:hover{background:rgba(255,255,255,.14)}}
 .mail{color:#fff}
 .foot a:focus-visible{outline-color:#fff}
+.band{background:var(--beige);margin:0 calc(50% - 50vw);padding-left:calc(50vw - 50%);padding-right:calc(50vw - 50%)}
+.band .list{border-top-color:rgba(17,17,17,.12)}
+.band .p{border-bottom-color:rgba(17,17,17,.12)}
+.band .p:hover{background:linear-gradient(90deg,transparent,var(--bg) 8%,var(--bg) 92%,transparent)}
+.band .tag{background:rgba(255,255,255,.5)}
+@media (max-width:900px){.band .p:hover{background:none}}
 </style>
 </head>
 <body>
@@ -239,8 +245,11 @@ body{background:var(--bg)}
       </ul>
     </div>
 
+  </section>
+
+  <section class="sec band" aria-labelledby="scale">
+    <div class="sh"><h2 id="scale">How I scale design</h2></div>
     <div class="group" style="margin-bottom:0">
-      <div class="sh" style="margin-top:clamp(36px,5vw,64px)"><h2 id="scale">How I scale design</h2></div>
       <ul class="list">
         <li class="p">
           <div class="t"><h4><a href="design-unblocked.html">Design, Unblocked — Scaling design through AI</a></h4><span class="tag">AI Enablement</span></div>
