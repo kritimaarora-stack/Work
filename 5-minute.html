@@ -14,9 +14,9 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#f8f6f1; --ink:#111; --ink2:#3d3c3a; --mute:#5b5a57; --line:#e2ddd3;
-  --beige:#e8e2d8; --lime:#c9e27c; --lime-d:#a8cf55;
-  --orange:#111; --teal:#111; --sage:#c9e27c; --lav:#c9e27c; --card:#e8e2d8; --cream:#f8f6f1;
+  --bg:#fbf7f0; --ink:#111; --ink2:#3d3c3a; --mute:#5b5a57; --line:#e2ddd3;
+  --beige:#f0e5d2; --lime:#80a690; --lime-d:#80a690; --teal-o:#176B5B; --sage-t:rgba(128,166,144,.45);
+  --orange:#111; --teal:#111; --sage:#80a690; --lav:#f0e5d2; --card:#f0e5d2; --cream:#fbf7f0;
   color-scheme:light;
 }
 *,*::before,*::after{box-sizing:border-box}
@@ -130,7 +130,7 @@ body{background:var(--bg)}
 .num{display:inline-grid;place-items:center;width:38px;height:38px;border-radius:50%;background:rgba(0,0,0,.07);color:var(--ink);font-size:13px;font-weight:500;margin-bottom:6px}
 .stat{background:var(--beige)}
 .stat:nth-child(even){background:var(--lime)}
-.stat:nth-child(even) .src{color:#2f3a1c}
+.stat:nth-child(even) .src{color:#16271e}.stat:nth-child(even) .l{color:#16271e}.s:nth-child(even) p{color:#16271e}
 .src a{color:var(--ink)}
 .strengths{background:transparent}
 .s{background:var(--beige)}
@@ -139,20 +139,20 @@ body{background:var(--bg)}
 @media (hover:hover){.ev a:hover{background:var(--ink);color:#fff}}
 .r-led{background:var(--ink);color:#fff}
 .r-team{background:#fff;color:var(--ink);box-shadow:inset 0 0 0 1px var(--ink)}
-.r-ic{background:var(--lime);color:var(--ink)}
+.r-ic{background:var(--sage-t);color:var(--ink)}
 .tag{color:var(--ink);border:1.5px solid var(--lime-d);background:transparent}
-.p .proof strong{color:var(--ink);background:linear-gradient(transparent 58%,var(--lime) 58%);padding:0 2px}
+.p .proof strong{color:var(--teal-o);background:linear-gradient(transparent 60%,var(--sage-t) 60%);padding:0 2px}
 .p:hover{background:linear-gradient(90deg,transparent,var(--beige) 8%,var(--beige) 92%,transparent)}
 .p:hover .go{color:var(--ink);text-decoration-color:var(--lime-d);text-decoration-thickness:2px}
-.foot{background:var(--lime);color:var(--ink)}
-.foot p{color:rgba(17,17,17,.72)}
-.btn-w{background:var(--ink);color:#fff}
-.btn-o{color:var(--ink);box-shadow:inset 0 0 0 1.5px var(--ink)}
-@media (hover:hover){.btn-w:hover{background:#333}.btn-o:hover{background:rgba(0,0,0,.06)}}
-.social a{border-color:rgba(17,17,17,.55);color:var(--ink)}
-@media (hover:hover){.social a:hover{background:rgba(0,0,0,.06)}}
-.mail{color:var(--ink)}
-.foot a:focus-visible{outline-color:#111}
+.foot{background:var(--teal-o);color:#fff}
+.foot p{color:rgba(255,255,255,.78)}
+.btn-w{background:#fff;color:var(--teal-o)}
+.btn-o{color:#fff;box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.75)}
+@media (hover:hover){.btn-w:hover{background:var(--beige)}.btn-o:hover{background:rgba(255,255,255,.14)}}
+.social a{border-color:rgba(255,255,255,.65);color:#fff}
+@media (hover:hover){.social a:hover{background:rgba(255,255,255,.14)}}
+.mail{color:#fff}
+.foot a:focus-visible{outline-color:#fff}
 </style>
 </head>
 <body>
@@ -179,7 +179,6 @@ body{background:var(--bg)}
   <section class="sec" aria-labelledby="impact" style="padding-top:0">
     <div class="sh">
       <h2 id="impact">Impact, in numbers</h2>
-      <p>Every number comes from a case study, with who did the work.</p>
     </div>
     <div class="stats">
       <article class="stat">
