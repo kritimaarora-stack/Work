@@ -264,6 +264,10 @@ a:focus-visible,button:focus-visible{outline-color:var(--d-ink)}
 .s .kw{margin:0;font-size:13.5px;line-height:1.5;color:var(--d-sage-l)}
 .s .kw .k{white-space:nowrap}
 .s .kw i{font-style:normal;color:var(--d-mute);margin:0 2px 0 7px}
+/* titles share one height per row; focus lines start on the same line */
+.sgrid .s{display:grid;grid-row:span 2;grid-template-rows:subgrid;row-gap:12px;align-content:start}
+.sgrid .s h3{align-self:start}
+.sgrid .s .kw{align-self:start}
 </style>
 </head>
 <body>
