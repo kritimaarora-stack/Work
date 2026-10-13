@@ -326,13 +326,13 @@ html.gate-on .gate{display:flex}
 .gate{position:fixed;inset:0;z-index:100;background:#fff;overflow-y:auto;overflow-x:hidden;flex-direction:column;transition:transform .7s cubic-bezier(.7,0,.2,1),opacity .7s ease}
 .gate.leaving{transform:translateY(-100%);pointer-events:none}
 .gate.leaving.to-short{transform:none;opacity:0}
-.g-top{position:relative;z-index:2;padding:calc(env(safe-area-inset-top,0px) + clamp(36px,6vh,72px)) 20px clamp(12px,2vh,20px);text-align:center}
+.g-top{position:relative;z-index:2;margin-top:auto;padding:calc(env(safe-area-inset-top,0px) + 40px) 20px 0;text-align:center}
 .g-name{margin:0;font-weight:600;font-size:clamp(20px,2vw,26px);letter-spacing:-.01em;color:#111}
 .g-role{margin:6px 0 0;font-weight:300;font-style:italic;font-size:clamp(14px,1.2vw,17px);color:#555}
 .g-q{margin:clamp(22px,3.5vh,36px) auto 0;max-width:16ch;font-weight:700;font-size:clamp(32px,4.4vw,60px);line-height:1;letter-spacing:-.05em;color:#111;text-wrap:balance}
 .g-sub{margin:clamp(10px,1.5vh,16px) 0 0;font-size:clamp(15px,1.3vw,18px);color:#555}
-.g-sky{position:relative;flex:1 0 auto;min-height:clamp(340px,52vh,560px);display:flex;align-items:flex-start;justify-content:center;padding:clamp(20px,3vh,32px) 20px calc(env(safe-area-inset-bottom,0px) + clamp(28px,5vh,56px));isolation:isolate;overflow:hidden}
-.g-clouds{position:absolute;inset:-12%;z-index:-3;background:
+.g-sky{position:relative;z-index:2;flex:0 0 auto;margin-bottom:auto;display:flex;justify-content:center;padding:clamp(26px,3.6vh,38px) 20px calc(env(safe-area-inset-bottom,0px) + 48px)}
+.g-clouds{position:fixed;left:-12%;right:-12%;bottom:-14%;height:66vh;z-index:0;pointer-events:none;opacity:.6;-webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 48%);mask-image:linear-gradient(to bottom,transparent 0,#000 48%);background:
  radial-gradient(28% 22% at 14% 38%,rgba(252,244,232,.95),rgba(252,244,232,0) 70%),
  radial-gradient(24% 18% at 38% 30%,rgba(244,214,190,.85),rgba(244,214,190,0) 70%),
  radial-gradient(30% 22% at 72% 34%,rgba(252,244,232,.9),rgba(252,244,232,0) 70%),
@@ -340,11 +340,11 @@ html.gate-on .gate{display:flex}
  radial-gradient(40% 26% at 26% 86%,rgba(252,244,232,.92),rgba(252,244,232,0) 70%),
  radial-gradient(26% 20% at 58% 70%,rgba(240,229,210,.8),rgba(240,229,210,0) 70%),
  linear-gradient(180deg,#b9d3c1 0%,#8fb59c 45%,#6f9c84 75%,#86ad95 100%);
- filter:blur(22px);animation:g-drift 38s ease-in-out infinite alternate}
+ filter:blur(36px);animation:g-drift 38s ease-in-out infinite alternate}
 @keyframes g-drift{to{transform:translate3d(-4%,2%,0) scale(1.06)}}
-.g-grain{position:absolute;inset:0;z-index:-2;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .6 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-size:180px;opacity:.38;mix-blend-mode:soft-light;pointer-events:none}
-.g-sky::before{content:"";position:absolute;left:0;right:0;top:0;height:30%;z-index:-1;background:linear-gradient(#fff,rgba(255,255,255,.75) 35%,rgba(255,255,255,0));pointer-events:none}
-.g-switch{width:100%;max-width:560px;padding:10px;border-radius:30px;background:rgba(255,255,255,.72);-webkit-backdrop-filter:blur(16px) saturate(1.2);backdrop-filter:blur(16px) saturate(1.2);border:1px solid rgba(255,255,255,.85);box-shadow:0 18px 40px rgba(30,80,60,.16),0 2px 6px rgba(30,80,60,.08);text-align:left}
+.g-grain{position:fixed;left:0;right:0;bottom:0;height:56vh;z-index:1;-webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 60%);mask-image:linear-gradient(to bottom,transparent 0,#000 60%);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .6 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-size:180px;opacity:.28;mix-blend-mode:soft-light;pointer-events:none}
+
+.g-switch{width:100%;max-width:560px;padding:10px;border-radius:30px;background:rgba(255,255,255,.82);-webkit-backdrop-filter:blur(16px) saturate(1.2);backdrop-filter:blur(16px) saturate(1.2);border:1px solid rgba(255,255,255,.85);box-shadow:0 22px 50px rgba(30,80,60,.14),0 2px 6px rgba(30,80,60,.06);text-align:left}
 .g-seg{position:relative;display:grid;grid-template-columns:1fr 1fr;padding:4px;border-radius:999px;background:rgba(17,17,17,.06)}
 .g-thumb{position:absolute;top:4px;bottom:4px;left:4px;width:calc(50% - 4px);border-radius:999px;background:#fff;box-shadow:0 2px 8px rgba(0,0,0,.12),0 1px 2px rgba(0,0,0,.08);transition:transform .45s cubic-bezier(.22,.9,.28,1)}
 .g-seg[data-mode="full"] .g-thumb{transform:translateX(100%)}
@@ -363,7 +363,7 @@ html.gate-on .gate{display:flex}
 .g-go svg{width:18px;height:18px;transition:transform .25s ease}
 @media (hover:hover){.g-go:hover{transform:translateY(-2px)}.g-go:hover svg{transform:translateX(4px)}.g-opt[aria-checked="false"]:hover{color:#111}}
 .g-go:focus-visible{outline:3px solid #111;outline-offset:3px}
-@media (max-width:640px){.g-q{font-size:clamp(30px,9vw,40px)}.g-sky{padding-top:18px}.g-opt b{font-size:14px}}
+@media (max-width:640px){.g-q{font-size:clamp(30px,9vw,40px)}.g-sky{padding-top:24px}.g-opt b{font-size:14px}}
 @media (prefers-reduced-motion:reduce){.gate,.g-thumb,.g-panel,.g-go,.g-go svg,.g-opt{transition:none}.g-clouds{animation:none}}
 /* version switch in the top bar */
 .vswitch{display:inline-flex;border:1px solid #e4e2de;border-radius:999px;padding:3px;gap:2px;background:#fff}
@@ -392,9 +392,9 @@ html.gate-on .gate{display:flex}
     <h2 class="g-q" id="gate-q">How much time do you have?</h2>
     <p class="g-sub">Pick a version. You can switch any time.</p>
   </div>
+  <div class="g-clouds" aria-hidden="true"></div>
+  <div class="g-grain" aria-hidden="true"></div>
   <div class="g-sky">
-    <div class="g-clouds" aria-hidden="true"></div>
-    <div class="g-grain" aria-hidden="true"></div>
     <div class="g-switch">
       <div class="g-seg" role="radiogroup" aria-label="Choose a version" data-mode="short">
         <span class="g-thumb" aria-hidden="true"></span>
@@ -404,7 +404,7 @@ html.gate-on .gate{display:flex}
       <div class="g-panels">
         <div class="g-panel" data-panel="short" aria-hidden="false">
           <h2>The one-pager</h2>
-          <p>What I'm best at, the impact in numbers, and all seven projects in a line each.</p>
+          <p>What I'm best at, and all seven projects with their results, a line each.</p>
           <a class="g-go" href="5-minute.html" data-view="short">Read the one-pager <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         </div>
         <div class="g-panel" data-panel="full" aria-hidden="true">
