@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Kritima Arora | The 5-minute version</title>
+<title>Kritima Arora | Executive review</title>
 <meta name="description" content="The 5-minute version of Kritima Arora's portfolio: strengths, impact and seven selected projects, for people short on time.">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Kritima Arora | The 5-minute version">
+<meta property="og:title" content="Kritima Arora | Executive review">
 <meta property="og:description" content="Product Design Manager at Delhivery. Strengths, impact and seven selected projects on one page.">
 <meta name="twitter:card" content="summary">
 <meta name="theme-color" content="#0e1613">
@@ -218,16 +218,47 @@ a:focus-visible,button:focus-visible{outline-color:var(--d-ink)}
 .veil{position:fixed;inset:0;z-index:300;pointer-events:none;background:#fff;clip-path:circle(0 at var(--x,50%) var(--y,50%));transition:clip-path .7s cubic-bezier(.7,0,.2,1)}
 .veil.go{clip-path:circle(150% at var(--x,50%) var(--y,50%))}
 @media (prefers-reduced-motion:reduce){.hero h1,.hero .who,.strengths .sh,.sgrid .s{animation:none}.veil{transition:none}}
+
+/* ===== three-question structure ===== */
+.jump{display:flex;flex-wrap:wrap;gap:8px;margin:clamp(4px,1vw,12px) 0 clamp(8px,2vw,24px)}
+.jump a{display:inline-flex;align-items:center;gap:8px;font-size:13.5px;font-weight:500;color:var(--d-ink2);text-decoration:none;border-radius:999px;padding:8px 14px;box-shadow:inset 0 0 0 1px rgba(255,255,255,.14)}
+.jump a span{font-size:11px;color:var(--d-sage-l)}
+@media (hover:hover){.jump a:hover{color:var(--d-ink);box-shadow:inset 0 0 0 1px var(--d-sage)}}
+.animate-jump{animation:rise .8s cubic-bezier(.22,.9,.28,1) .36s both}
+.sh>div{display:flex;flex-direction:column;gap:10px}
+.q{font-size:12px;font-weight:600;letter-spacing:.14em;color:var(--d-sage-l)}
+.sh p{color:var(--d-mute);max-width:40ch}
+.gh{color:var(--d-mute)!important;margin-top:8px!important}
+.group+.group{margin-top:clamp(28px,3.6vw,44px)}
+.p{grid-template-columns:minmax(0,1fr) minmax(0,1.25fr) minmax(0,1fr);align-items:start}
+.p .t .role{font-size:12.5px;color:var(--d-mute);line-height:1.4}
+.p .what{display:flex;flex-direction:column;gap:10px}
+.p .what p{margin:0;font-size:14.5px;line-height:1.5;color:var(--d-ink2)}
+.lbl{display:block;font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--d-mute);margin-bottom:2px}
+.out{display:flex;flex-direction:column;gap:4px}
+.big{font-weight:600;font-size:clamp(28px,2.6vw,38px);line-height:1;letter-spacing:-.04em;color:var(--d-sage-l)}
+.big-l{font-size:13.5px;line-height:1.4;color:var(--d-ink)}
+.out .sub{font-size:12.5px;line-height:1.45;color:var(--d-mute);margin-top:4px}
+.out .go{margin-top:10px;font-size:13px;font-weight:600;color:var(--d-ink);text-decoration:underline;text-underline-offset:3px}
+.p:hover .out .go{color:var(--d-sage-l)}
+@media (max-width:900px){.p{grid-template-columns:1fr;gap:14px}}
+.fgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.f{background:var(--d-card);border-radius:22px;padding:24px 22px;display:flex;flex-direction:column;gap:10px;box-shadow:inset 0 0 0 1px rgba(255,255,255,.05)}
+.f h3{margin:0;font-weight:500;font-size:clamp(19px,1.6vw,22px);line-height:1.15;letter-spacing:-.03em;color:var(--d-ink)}
+.f p{margin:0;font-size:14.5px;line-height:1.5;color:var(--d-ink2);max-width:46ch}
+.ev-l{font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--d-mute);align-self:center;margin-right:4px}
+@media (max-width:700px){.fgrid{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){.animate-jump{animation:none}}
 </style>
 </head>
 <body>
 
 <header class="bar">
   <div class="wrap">
-    <a class="me" href="index.html?view=choose">Kritima Arora<span class="mode">Executive briefing</span></a>
+    <a class="me" href="index.html?view=choose">Kritima Arora<span class="mode">Executive review</span></a>
     <nav class="switch" aria-label="Portfolio version">
-      <a href="5-minute.html" aria-current="page">5-min version</a>
-      <a href="index.html?view=full">Full portfolio</a>
+      <a href="5-minute.html" aria-current="page">Executive review</a>
+      <a href="index.html?view=full">Complete story</a>
     </nav>
   </div>
   <span class="prog" aria-hidden="true"></span>
@@ -241,31 +272,31 @@ a:focus-visible,button:focus-visible{outline-color:var(--d-ink)}
     <p class="who"><b>Product Design Manager at Delhivery</b>, leading a team of 6. Previously Design Manager at Upstox. 10+ years across logistics, fintech and e-commerce.</p>
   </section>
 
-  <section class="sec strengths" aria-labelledby="good-at" style="padding-top:clamp(8px,1.5vw,20px)">
-    <div class="sh">
-      <h2 id="good-at">What I'm exceptionally good at</h2>
-    </div>
+  <nav class="jump animate-jump" aria-label="On this page">
+    <a href="#good-at"><span>01</span>Exceptional at</a>
+    <a href="#delivered"><span>02</span>Delivered</a>
+    <a href="#for-you"><span>03</span>For your team</a>
+  </nav>
+
+  <section class="sec strengths" aria-labelledby="good-at">
+    <div class="sh"><div><span class="q">01</span><h2 id="good-at">What I'm exceptional at</h2></div><p>The capabilities that set me apart from a conventional product designer.</p></div>
     <div class="sgrid">
       <article class="s">
-        <span class="num">01</span>
         <h3>Making operational complexity usable</h3>
         <p>Field research first, then many-step workflows cut down to the one decision that matters.</p>
         <div class="ev"><a href="fleet-management.html">Fleet</a><a href="first-mile.html">First Mile</a><a href="ipo.html">IPO</a></div>
       </article>
       <article class="s">
-        <span class="num">02</span>
         <h3>Redesigning how design gets done, with AI</h3>
         <p>Operating models, not demos: tiered intake, PMs prototyping in the design system, agents built without engineers.</p>
         <div class="ev"><a href="design-unblocked.html">Design, Unblocked</a><a href="onboarding-flow-generator.html">Flow Generator</a></div>
       </article>
       <article class="s">
-        <span class="num">03</span>
         <h3>Building systems that scale</h3>
         <p>Design systems for 8+ products at Upstox; now bringing tokens to 20+ Delhivery products.</p>
         <div class="ev"><a href="design-tokens.html">Design Tokens</a><a href="about.html">Experience</a></div>
       </article>
       <article class="s">
-        <span class="num">04</span>
         <h3>Tying design to business numbers</h3>
         <p>Problems framed in what leaders fund, like rupees saved or activation, then measured.</p>
         <div class="ev"><a href="stocks-ftue.html">Stocks</a><a href="fleet-management.html">Fleet</a></div>
@@ -273,58 +304,78 @@ a:focus-visible,button:focus-visible{outline-color:var(--d-ink)}
     </div>
   </section>
 
-  <section class="sec" aria-labelledby="seven">
-    <div class="sh">
-      <h2 id="seven">Products I've shipped</h2>
-    </div>
-
+  <section class="sec" aria-labelledby="delivered">
+    <div class="sh"><div><span class="q">02</span><h2 id="delivered">What I've delivered</h2></div><p>Seven projects. The challenge, my part, and the result.</p></div>
     <div class="group">
+      <h3 class="gh">Products shipped</h3>
       <ul class="list">
         <li class="p">
-          <div class="t"><h4><a href="fleet-management.html">Intelligent Fleet Management at Delhivery's Facilities</a></h4><span class="tag">Leadership</span></div>
-          <p class="what">Ops kept hiring vehicles the network already had. I reframed the brief so sharing became the default.</p>
-          <div class="proof"><span><strong>₹5.58L</strong> est. saved in 2 weeks · <strong>+6.4%</strong> utilisation · <strong>196</strong> centres</span><span class="role">Led design · ~3 months</span><span class="go">Read case study →</span></div>
+          <div class="t"><h4><a href="fleet-management.html">Intelligent Fleet Management at Delhivery's Facilities</a></h4><span class="tag">Leadership</span><span class="role">Led design · 1 designer, PM, Product Director</span></div>
+          <div class="what"><p><span class="lbl">Challenge</span>~₹97L a month spent hiring vehicles the network already had.</p><p><span class="lbl">What I did</span>Reframed "book a vehicle" into "use the capacity we have", with sharing as the default.</p></div>
+          <div class="out"><span class="big">₹5.58L</span><span class="big-l">est. ad-hoc spend saved in the first 2 weeks</span><span class="sub">+6.4% utilisation · live in 196 centres</span><span class="go">Read case study →</span></div>
         </li>
         <li class="p">
-          <div class="t"><h4><a href="stocks-ftue.html">Stocks: First-Time Users from Onboarding to Activation</a></h4><span class="tag">IC Work</span></div>
-          <p class="what">200,000+ new accounts a month, few first trades. One entry for three investor types and a calmer first order.</p>
-          <div class="proof"><span>Activation <strong>13% → 37%</strong> · retention <strong>62% → 74%</strong> (users who saw it)</span><span class="role">Led end to end · 3 weeks</span><span class="go">Read case study →</span></div>
+          <div class="t"><h4><a href="stocks-ftue.html">Stocks: First-Time Users from Onboarding to Activation</a></h4><span class="tag">IC Work</span><span class="role">Led end to end · 3 weeks</span></div>
+          <div class="what"><p><span class="lbl">Challenge</span>200,000+ new accounts a month, but few ever placed a first trade.</p><p><span class="lbl">What I did</span>One entry for three investor types, two safe picks, and a calmer first order.</p></div>
+          <div class="out"><span class="big">13% → 37%</span><span class="big-l">30-day activation, for users who saw it</span><span class="sub">Retention 62% → 74%</span><span class="go">Read case study →</span></div>
         </li>
         <li class="p">
-          <div class="t"><h4><a href="first-mile.html">Re-iterating Delhivery's First Mile Rider App for Scale</a></h4><span class="tag">IC Work + Leadership</span></div>
-          <p class="what">Riders planned routes from memory. We moved them to sequenced stops and one-step scanning.</p>
-          <div class="proof"><span><strong>8,967</strong> riders · <strong>44 → 32</strong> stops · <strong>66%</strong> of pickups in top-5 suggestions</span><span class="role">Team project · joined midway hands-on</span><span class="go">Read case study →</span></div>
+          <div class="t"><h4><a href="first-mile.html">Re-iterating Delhivery's First Mile Rider App for Scale</a></h4><span class="tag">IC Work + Leadership</span><span class="role">Team project · joined midway hands-on</span></div>
+          <div class="what"><p><span class="lbl">Challenge</span>Riders planned routes from memory and searched for every pickup.</p><p><span class="lbl">What I did</span>Moved the app to sequenced stops, a map view and one-step scanning.</p></div>
+          <div class="out"><span class="big">8,967</span><span class="big-l">riders across 2,848 centres on the new app</span><span class="sub">44 → 32 stops · 66% of pickups in top-5 suggestions</span><span class="go">Read case study →</span></div>
         </li>
         <li class="p">
-          <div class="t"><h4><a href="ipo.html">Elevating IPO for improved activation and retention</a></h4><span class="tag">IC Work</span></div>
-          <p class="what">~4,500 support tickets a month in hot markets. I redesigned discovery, status and decisions around their causes.</p>
-          <div class="proof"><span>Live on Upstox · targets: <strong>~80%</strong> fewer tickets, <strong>3×</strong> revenue</span><span class="role">Led with one other designer · 3 months</span><span class="go">Read case study →</span></div>
+          <div class="t"><h4><a href="ipo.html">Elevating IPO for improved activation and retention</a></h4><span class="tag">IC Work</span><span class="role">Led with one other designer · 3 months</span></div>
+          <div class="what"><p><span class="lbl">Challenge</span>~4,500 support tickets a month in hot markets; 5–6% participation.</p><p><span class="lbl">What I did</span>Traced tickets to their causes, then redesigned discovery, decisions and status.</p></div>
+          <div class="out"><span class="big">Live</span><span class="big-l">on Upstox, redesigned end to end</span><span class="sub">Targets set: ~80% fewer tickets, 3× revenue</span><span class="go">Read case study →</span></div>
         </li>
       </ul>
     </div>
-
+    <div class="group" style="margin-bottom:0">
+      <h3 class="gh">Design at scale</h3>
+      <ul class="list">
+        <li class="p">
+          <div class="t"><h4><a href="design-unblocked.html">Design, Unblocked — Scaling design through AI</a></h4><span class="tag">AI Enablement</span><span class="role">Led · tracked over 4 roadmap projects</span></div>
+          <div class="what"><p><span class="lbl">Challenge</span>5 designers, 20 PMs, one queue: design had become the bottleneck.</p><p><span class="lbl">What I did</span>Tiered the work, fixed intake, and taught PMs to prototype with AI in our design system.</p></div>
+          <div class="out"><span class="big">8 → 3.5 days</span><span class="big-l">design-to-dev handoff on medium projects</span><span class="sub">~1 month → 12 days on large · VP asked to scale it across pods</span><span class="go">Read case study →</span></div>
+        </li>
+        <li class="p">
+          <div class="t"><h4><a href="onboarding-flow-generator.html">AI assisted Onboarding Flow Generator</a></h4><span class="tag">AI Tooling</span><span class="role">Led, built with my designers · prototype</span></div>
+          <div class="what"><p><span class="lbl">Challenge</span>Every team redesigned onboarding from zero, repeating old mistakes.</p><p><span class="lbl">What I did</span>Built a four-agent system that drafts new flows from what we already know.</p></div>
+          <div class="out"><span class="big">0</span><span class="big-l">engineers needed; my designers built it in Kiro</span><span class="sub">Used to draft our HR system onboarding</span><span class="go">Read case study →</span></div>
+        </li>
+        <li class="p">
+          <div class="t"><h4><a href="design-tokens.html">Design Tokens — Design × Developer handshake</a></h4><span class="tag">Team Enablement</span><span class="role">Led, presented with my team</span></div>
+          <div class="what"><p><span class="lbl">Challenge</span>20+ products in my pod, no shared system, none looked alike.</p><p><span class="lbl">What I did</span>Made design tokens the shared language of Design and Engineering, through a talk.</p></div>
+          <div class="out"><span class="big">20+</span><span class="big-l">products, the starting point for a shared system</span><span class="sub">Design Spotlight talk · legacy adoption underway</span><span class="go">Read case study →</span></div>
+        </li>
+      </ul>
+    </div>
   </section>
 
-  <section class="sec band" aria-labelledby="scale">
-    <div class="sh"><h2 id="scale">How I scale design</h2></div>
-    <div class="group" style="margin-bottom:0">
-      <ul class="list">
-        <li class="p">
-          <div class="t"><h4><a href="design-unblocked.html">Design, Unblocked — Scaling design through AI</a></h4><span class="tag">AI Enablement</span></div>
-          <p class="what">5 designers, 20 PMs, one queue. I tiered the work and taught PMs to prototype with AI in our design system.</p>
-          <div class="proof"><span>Handoff <strong>8 → 3.5 days</strong> (medium), <strong>~1 month → 12 days</strong> (large) · now scaling across pods</span><span class="role">Led · tracked over 4 projects</span><span class="go">Read case study →</span></div>
-        </li>
-        <li class="p">
-          <div class="t"><h4><a href="onboarding-flow-generator.html">AI assisted Onboarding Flow Generator</a></h4><span class="tag">AI Tooling</span></div>
-          <p class="what">Teams kept redesigning onboarding from zero. We built a multi-agent system that starts from what we already know.</p>
-          <div class="proof"><span>Built in Kiro, <strong>no engineers</strong> · drafted our HR onboarding</span><span class="role">Led, built with my designers · prototype</span><span class="go">Read case study →</span></div>
-        </li>
-        <li class="p">
-          <div class="t"><h4><a href="design-tokens.html">Design Tokens — Design × Developer handshake</a></h4><span class="tag">Team Enablement</span></div>
-          <p class="what">20+ products looked like different companies. I made tokens the shared language of Design and Engineering.</p>
-          <div class="proof"><span>Design Spotlight talk · legacy adoption underway</span><span class="role">Led, presented with my team</span><span class="go">Read case study →</span></div>
-        </li>
-      </ul>
+  <section class="sec band" aria-labelledby="for-you">
+    <div class="sh"><div><span class="q">03</span><h2 id="for-you">What I can do for your team</h2></div><p>The kinds of challenges I can lead, and where I have already done it.</p></div>
+    <div class="fgrid">
+      <article class="f">
+        <h3>Untangling operationally heavy products</h3>
+        <p>Tools and field apps where many teams, vehicles or riders meet, and every extra step costs money.</p>
+        <div class="ev"><span class="ev-l">Proof</span><a href="fleet-management.html">Fleet</a><a href="first-mile.html">First Mile</a></div>
+      </article>
+      <article class="f">
+        <h3>Lifting activation in first-time journeys</h3>
+        <p>Consumer funnels where trust and confusion stop people before the first action.</p>
+        <div class="ev"><span class="ev-l">Proof</span><a href="stocks-ftue.html">Stocks</a><a href="ipo.html">IPO</a></div>
+      </article>
+      <article class="f">
+        <h3>Removing design as the bottleneck</h3>
+        <p>Teams where PMs outnumber designers and handoffs drag. I redesign how the work flows, not just the screens.</p>
+        <div class="ev"><span class="ev-l">Proof</span><a href="design-unblocked.html">Design, Unblocked</a><a href="onboarding-flow-generator.html">Flow Generator</a></div>
+      </article>
+      <article class="f">
+        <h3>Bringing order to fragmented product suites</h3>
+        <p>Many products, no shared system. I set up the tokens, patterns and knowledge teams build on.</p>
+        <div class="ev"><span class="ev-l">Proof</span><a href="design-tokens.html">Design Tokens</a><a href="about.html">8+ products at Upstox</a></div>
+      </article>
     </div>
   </section>
 
@@ -335,7 +386,7 @@ a:focus-visible,button:focus-visible{outline-color:var(--d-ink)}
   <h2>Complex products. Growing teams. Better systems.</h2>
   <p>Best fit: operationally heavy products, and design teams that need to scale.</p>
   <div class="ctas">
-    <a class="btn btn-w" href="index.html?view=full">Explore the full portfolio →</a>
+    <a class="btn btn-w" href="index.html?view=full">Read the complete story →</a>
     <a class="btn btn-o" href="mailto:kritimaarora18@gmail.com">Email me</a>
   </div>
   <div class="social">

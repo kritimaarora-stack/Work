@@ -408,19 +408,19 @@ html.gate-on .gate{display:flex}
     <div class="g-switch">
       <div class="g-seg" role="radiogroup" aria-label="Choose a version" data-mode="short">
         <span class="g-thumb" aria-hidden="true"></span>
-        <button type="button" class="g-opt" role="radio" aria-checked="true" data-mode="short"><b>5 minutes</b><small>The one-pager</small></button>
-        <button type="button" class="g-opt" role="radio" aria-checked="false" tabindex="-1" data-mode="full"><b>As long as you like</b><small>The full portfolio</small></button>
+        <button type="button" class="g-opt" role="radio" aria-checked="true" data-mode="short"><b>5 minutes</b><small>The executive review</small></button>
+        <button type="button" class="g-opt" role="radio" aria-checked="false" tabindex="-1" data-mode="full"><b>As long as you like</b><small>The complete story</small></button>
       </div>
       <div class="g-panels">
         <div class="g-panel" data-panel="short" aria-hidden="false">
-          <h2>The one-pager</h2>
-          <p>What I'm best at, and all seven projects with their results, a line each.</p>
-          <a class="g-go" href="5-minute.html" data-view="short">Read the one-pager <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <h2>The executive review</h2>
+          <p>What I'm exceptional at, what I've delivered, and what I can do for your team.</p>
+          <a class="g-go" href="5-minute.html" data-view="short">Start the review <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         </div>
         <div class="g-panel" data-panel="full" aria-hidden="true">
-          <h2>The full portfolio</h2>
-          <p>Complete case studies, process and decisions, plus my experiments building with AI.</p>
-          <button type="button" class="g-go" data-view="full" tabindex="-1">Enter the portfolio <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+          <h2>The complete story</h2>
+          <p>Full case studies with the research, decisions and process, plus my experiments building with AI.</p>
+          <button type="button" class="g-go" data-view="full" tabindex="-1">Read the complete story <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
         </div>
       </div>
     </div>
@@ -434,8 +434,8 @@ html.gate-on .gate{display:flex}
   <a href="about.html">About</a>
 </nav>
 <div class="vswitch" role="navigation" aria-label="Portfolio version">
-  <a href="5-minute.html" data-view="short">5-min version</a>
-  <a href="index.html?view=full" aria-current="page">Full portfolio</a>
+  <a href="5-minute.html" data-view="short">Executive review</a>
+  <a href="index.html?view=full" aria-current="page">Complete story</a>
 </div>
 </header>
 
@@ -624,7 +624,7 @@ window.kaBrief=function(el){
   try{sessionStorage.setItem("kaView","short");}catch(e){}
   v.className="brief-veil";v.setAttribute("aria-hidden","true");
   v.style.setProperty("--x",(r.left+r.width/2)+"px");v.style.setProperty("--y",(r.top+r.height/2)+"px");
-  v.innerHTML='<div class="bv"><span class="bv-k">Executive briefing</span><p class="bv-t">Kritima Arora</p><p class="bv-s">5 minutes &middot; strengths and seven projects</p></div>';
+  v.innerHTML='<div class="bv"><span class="bv-k">Executive review</span><p class="bv-t">Kritima Arora</p><p class="bv-s">5 minutes &middot; capabilities, results, fit</p></div>';
   document.body.appendChild(v);void v.offsetWidth;v.classList.add("go");
   setTimeout(function(){location.href=href;},1250);
 };
