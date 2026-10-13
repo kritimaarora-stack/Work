@@ -270,6 +270,7 @@ a:focus-visible,button:focus-visible{outline-color:var(--d-ink)}
 .sgrid .s .kw{align-self:start}
 .sgrid .s .kw,.sgrid .s:nth-child(n) .kw{color:var(--d-sage-l)}
 </style>
+<script data-goatcounter="https://kritima.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </head>
 <body>
 
@@ -431,6 +432,16 @@ try{sessionStorage.setItem("kaView","short");}catch(e){}
     });
   });
   window.addEventListener("pageshow",function(e){if(e.persisted)document.querySelectorAll(".veil").forEach(function(v){v.remove();});});
+})();
+</script>
+<script>
+window.kaTrack=function(name,title){try{if(window.goatcounter&&window.goatcounter.count)window.goatcounter.count({path:name,title:title,event:true});}catch(e){}};
+</script>
+<script>
+(function(){
+  document.querySelectorAll('a[href^="index.html?view=full"]').forEach(function(a){a.addEventListener("click",function(){window.kaTrack&&kaTrack("switch-to-complete-story","Review: went to Complete story");});});
+  document.querySelectorAll('.p h4 a').forEach(function(a){a.addEventListener("click",function(){window.kaTrack&&kaTrack("review-open-"+a.getAttribute("href").replace(".html",""),"Review: opened "+a.textContent.trim());});});
+  document.querySelectorAll('a[href^="mailto:"]').forEach(function(a){a.addEventListener("click",function(){window.kaTrack&&kaTrack("review-email","Review: clicked Email me");});});
 })();
 </script>
 </body>

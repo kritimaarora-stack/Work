@@ -458,6 +458,7 @@ html.gate-on .gate{display:flex}
   if(q==="full"){sessionStorage.setItem("kaView","full");}
 }catch(e){}})();
 </script>
+<script data-goatcounter="https://kritima.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </head>
 <body>
 <div class="gate" id="gate" role="dialog" aria-modal="true" aria-labelledby="gate-q">
@@ -670,11 +671,13 @@ html.gate-on .gate{display:flex}
   });
   gate.querySelector('[data-view="short"]').addEventListener("click",function(e){
     remember("short");
+    window.kaTrack&&kaTrack("choice-executive-review","Starter: chose Executive review");
     if(reduce||e.metaKey||e.ctrlKey||e.shiftKey)return;
     e.preventDefault();window.kaBrief(this);
   });
   gate.querySelector('[data-view="full"]').addEventListener("click",function(){
     remember("full");
+    window.kaTrack&&kaTrack("choice-complete-story","Starter: chose Complete story");
     function done(){root.classList.remove("gate-on");gate.classList.remove("leaving");window.scrollTo(0,0);}
     if(reduce){done();return;}
     window.scrollTo(0,0);gate.classList.add("leaving");setTimeout(done,720);
@@ -703,11 +706,14 @@ window.kaBrief=function(el){
 (function(){
   var reduce=window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches;
   var a=document.querySelector('.mswitch [data-view="short"]');
-  if(a)a.addEventListener("click",function(e){if(reduce||e.metaKey||e.ctrlKey||e.shiftKey||e.button)return;e.preventDefault();window.kaBrief(a);});
+  if(a)a.addEventListener("click",function(e){window.kaTrack&&kaTrack("switch-to-executive-review","Top bar: switched to Executive review");if(reduce||e.metaKey||e.ctrlKey||e.shiftKey||e.button)return;e.preventDefault();window.kaBrief(a);});
   window.addEventListener("pageshow",function(e){if(!e.persisted)return;
     document.querySelectorAll(".brief-veil").forEach(function(v){v.remove();});
     var g=document.getElementById("gate");if(g)g.classList.remove("leaving","to-short");});
 })();
+</script>
+<script>
+window.kaTrack=function(name,title){try{if(window.goatcounter&&window.goatcounter.count)window.goatcounter.count({path:name,title:title,event:true});}catch(e){}};
 </script>
 </body>
 </html>
