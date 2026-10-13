@@ -383,6 +383,10 @@ html.gate-on .gate{display:flex}
 .bv-t{margin:14px 0 0;font-family:Inter,system-ui,sans-serif;font-weight:600;font-size:clamp(30px,4vw,52px);line-height:1.05;letter-spacing:-.045em}
 .bv-s{margin:10px 0 0;font-family:Inter,system-ui,sans-serif;font-size:15px;color:#8b968f}
 @media (prefers-reduced-motion:reduce){.brief-veil,.brief-veil .bv{transition:none}}
+/* pin the top bar from the start (no slide-up before it sticks) */
+.top{margin-top:0!important;top:0!important;padding-top:calc(env(safe-area-inset-top,0px) + 12px);padding-bottom:12px}
+.hero{margin-top:clamp(64px,9vw,150px)!important}
+@media (max-width:1100px){.top{padding-top:calc(env(safe-area-inset-top,0px) + 10px)!important;padding-bottom:10px!important}}
 </style>
 <script>
 (function(){try{
