@@ -262,6 +262,43 @@ h3 { font-weight: 600; font-size: var(--t-h3); line-height: 1.3; letter-spacing:
 .foot { border-top-color: var(--line-2); }
 .rule span:first-child { color: var(--accent); }
 .rule span:first-child::after { content: none; }
+
+/* ===== collapsible sections ===== */
+.sec.sx{padding-top:0;gap:0;scroll-margin-top:72px}
+.sx-tools{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:clamp(48px,6vw,88px);padding-bottom:14px;font-size:14px;color:var(--ink-3)}
+.sx-all{font:inherit;font-size:14px;font-weight:500;color:var(--ink);background:none;border:1px solid var(--line-2);border-radius:999px;padding:8px 16px;cursor:pointer}
+@media (hover:hover){.sx-all:hover{border-color:var(--ink)}}
+.sx-h{margin:0;max-width:none;font:inherit}
+.sx-btn{all:unset;box-sizing:border-box;width:100%;display:grid;grid-template-columns:minmax(0,1fr) auto;column-gap:24px;row-gap:12px;align-items:center;padding:26px 0;border-top:1px solid var(--line-2);cursor:pointer;color:var(--ink)}
+.sx:last-of-type .sx-btn[aria-expanded="false"]{border-bottom:1px solid var(--line-2)}
+.sx-k{grid-column:1;display:flex;gap:12px;font-size:13px;font-weight:600;letter-spacing:0}
+.sx-n{color:var(--accent)}
+.sx-l{color:var(--ink)}
+.sx-t{grid-column:1;display:block;max-width:900px;font-weight:600;font-size:var(--t-h2);line-height:1.12;letter-spacing:-.03em}
+.sx-t em{font-style:normal;color:var(--accent)}
+.sx-ic{grid-column:2;grid-row:1 / span 2;position:relative;width:44px;height:44px;border-radius:50%;border:1px solid var(--line-2);transition:background .2s,border-color .2s,transform .35s cubic-bezier(.22,.9,.28,1)}
+.sx-ic::before,.sx-ic::after{content:"";position:absolute;left:50%;top:50%;width:14px;height:1.75px;background:var(--ink);border-radius:2px;transform:translate(-50%,-50%)}
+.sx-ic::after{transform:translate(-50%,-50%) rotate(90deg);transition:transform .35s cubic-bezier(.22,.9,.28,1)}
+.sx-btn[aria-expanded="true"] .sx-ic::after{transform:translate(-50%,-50%) rotate(0deg)}
+@media (hover:hover){.sx-btn:hover .sx-ic{background:var(--ink);border-color:var(--ink)}.sx-btn:hover .sx-ic::before,.sx-btn:hover .sx-ic::after{background:var(--bg)}.sx-btn:hover .sx-t{color:var(--ink)}}
+.sx-btn:focus-visible{outline:3px solid var(--accent);outline-offset:4px;border-radius:6px}
+.sx-body{display:grid;grid-template-rows:0fr;transition:grid-template-rows .45s cubic-bezier(.22,.9,.28,1)}
+.sx.open .sx-body{grid-template-rows:1fr}
+.sx-in{min-height:0;overflow:hidden;display:flex;flex-direction:column;gap:40px}
+.sx-in>:first-child{margin-top:8px}
+.sx-in>:last-child{margin-bottom:clamp(48px,6vw,80px)}
+.sx-next{align-self:flex-start;font:inherit;font-size:14px;font-weight:600;color:var(--accent);background:none;border:0;padding:0;cursor:pointer;text-decoration:underline;text-underline-offset:4px}
+@media (max-width:640px){.sx-btn{padding:22px 0;column-gap:16px}.sx-ic{width:38px;height:38px}}
+@media (prefers-reduced-motion:reduce){.sx-body,.sx-ic,.sx-ic::after{transition:none}}
+@media print{.sx-body{grid-template-rows:1fr!important}.sx-ic,.sx-tools,.sx-next{display:none}}
+
+/* ===== one gutter for the whole page: top bar, hero and content share the same left/right edges ===== */
+.sitebar .sb-in{max-width:1200px;padding-left:clamp(20px,5vw,64px);padding-right:clamp(20px,5vw,64px)}
+.hero{padding-left:clamp(20px,5vw,64px);padding-right:clamp(20px,5vw,64px)}
+.hero .stack{width:auto;max-width:calc(1200px - 2 * clamp(20px,5vw,64px));margin:0 auto}
+.hero .front-body{border-radius:0 16px 0 0}
+.hero .tab{max-width:calc(100% - var(--tab-l,0%))}
+@media (max-width:360px){.hero .tab{width:clamp(128px,24%,290px)}}
 </style>
 <script data-goatcounter="https://kritima.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </head>
@@ -479,6 +516,53 @@ h3 { font-weight: 600; font-size: var(--t-h3); line-height: 1.3; letter-spacing:
   function prog() { var h = document.documentElement, m = h.scrollHeight - innerHeight; bar.style.setProperty('--prog', m > 0 ? Math.min(1, Math.max(0, pageYOffset / m)) : 0); ticking = false; }
   function onScroll() { if (!ticking) { ticking = true; requestAnimationFrame(prog); } }
   addEventListener('scroll', onScroll, { passive: true }); addEventListener('resize', onScroll); prog();
+})();
+</script>
+<script>window.kaTrack=function(n,t){try{if(window.goatcounter&&goatcounter.count)goatcounter.count({path:n,title:t,event:true})}catch(e){}};</script>
+<script>
+(function(){
+  var secs=[].slice.call(document.querySelectorAll('main .sec'));
+  if(!secs.length)return;
+  var items=[];
+  secs.forEach(function(sec,i){
+    var rule=sec.querySelector(':scope > .rule'),h=sec.querySelector('h2');
+    if(!rule||!h)return;
+    var num=rule.children[0].textContent,label=rule.children[1].textContent,id=h.id||('s'+(i+1));
+    var head=document.createElement('h2');head.className='sx-h';
+    var btn=document.createElement('button');btn.type='button';btn.className='sx-btn';btn.setAttribute('aria-expanded','false');btn.setAttribute('aria-controls','sx-b-'+id);
+    btn.innerHTML='<span class="sx-k"><span class="sx-n">'+num+'</span><span class="sx-l">'+label+'</span></span><span class="sx-t">'+h.innerHTML+'</span><span class="sx-ic" aria-hidden="true"></span>';
+    head.appendChild(btn);
+    h.remove();rule.remove();head.id=id;
+    var body=document.createElement('div');body.className='sx-body';body.id='sx-b-'+id;
+    var inner=document.createElement('div');inner.className='sx-in';
+    while(sec.firstChild)inner.appendChild(sec.firstChild);
+    body.appendChild(inner);sec.appendChild(head);sec.appendChild(body);sec.classList.add('sx');
+    inner.inert=true;inner.setAttribute('aria-hidden','true');
+    items.push({sec:sec,btn:btn,inner:inner,num:num,label:label});
+  });
+  function set(it,open){
+    it.sec.classList.toggle('open',open);it.btn.setAttribute('aria-expanded',open);
+    it.inner.inert=!open;if(open)it.inner.removeAttribute('aria-hidden');else it.inner.setAttribute('aria-hidden','true');
+  }
+  items.forEach(function(it,i){
+    it.btn.addEventListener('click',function(){
+      var open=!it.sec.classList.contains('open');set(it,open);sync();
+      if(!open){var r=it.sec.getBoundingClientRect();if(r.top<0)it.sec.scrollIntoView({block:'start'});}
+      try{window.kaTrack&&kaTrack('du-'+(open?'open':'close')+'-'+it.num,'Design Unblocked: '+(open?'opened ':'closed ')+it.label);}catch(e){}
+    });
+    var nx=items[i+1];
+    if(nx){var b=document.createElement('button');b.type='button';b.className='sx-next';b.textContent='Next: '+nx.num+' '+nx.label+' \u2193';
+      b.addEventListener('click',function(){set(nx,true);sync();nx.sec.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'});nx.btn.focus({preventScroll:true});});
+      it.inner.appendChild(b);}
+  });
+  var tools=document.createElement('div');tools.className='sx-tools';
+  tools.innerHTML='<span>'+items.length+' sections \u00b7 open any to read</span><button type="button" class="sx-all" aria-expanded="false">Expand all</button>';
+  items[0].sec.parentNode.insertBefore(tools,items[0].sec);
+  var all=tools.querySelector('.sx-all');
+  function sync(){var every=items.every(function(it){return it.sec.classList.contains('open')});all.textContent=every?'Collapse all':'Expand all';all.setAttribute('aria-expanded',every);}
+  all.addEventListener('click',function(){var every=items.every(function(it){return it.sec.classList.contains('open')});items.forEach(function(it){set(it,!every)});sync();});
+  function fromHash(){var h=location.hash.slice(1);if(!h)return;var el=document.getElementById(h);if(!el)return;items.forEach(function(it){if(it.sec.contains(el)){set(it,true);sync();setTimeout(function(){el.scrollIntoView({block:'start'})},60);}});}
+  fromHash();addEventListener('hashchange',fromHash);
 })();
 </script>
 </body>
