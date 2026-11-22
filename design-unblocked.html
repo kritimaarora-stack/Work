@@ -299,6 +299,96 @@ h3 { font-weight: 600; font-size: var(--t-h3); line-height: 1.3; letter-spacing:
 .hero .front-body{border-radius:0 16px 0 0}
 .hero .tab{max-width:calc(100% - var(--tab-l,0%))}
 @media (max-width:360px){.hero .tab{width:clamp(128px,24%,290px)}}
+
+/* ===== visual direction: show, don't narrate (nv-) ===== */
+.nv-sub{margin:-16px 0 0;font-size:18px;line-height:1.5;color:var(--ink-2);max-width:640px}
+.nv-sub b{color:var(--ink);font-weight:600}
+.nv-tag{display:block;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);margin-bottom:10px}
+.nv-funnel{display:grid;grid-template-columns:minmax(0,1fr) 90px minmax(0,1fr);align-items:center;gap:20px}
+.nv-reqs{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.nv-reqs li{background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px 14px;font-size:14px;line-height:1.3}
+.nv-arrow{height:2px;background:var(--accent);opacity:.55;position:relative}
+.nv-arrow::after{content:"";position:absolute;right:-2px;top:-5px;border:6px solid transparent;border-left-color:var(--accent)}
+.nv-queue{background:#fff;border:1.5px solid var(--accent);border-radius:18px;padding:22px 24px;box-shadow:0 10px 30px rgba(39,83,201,.08)}
+.nv-big{font-size:clamp(34px,3.4vw,44px);font-weight:600;letter-spacing:-.03em;line-height:1;color:var(--accent)}
+.nv-queue p{margin:8px 0 0;color:var(--ink-2);font-size:14px}
+.nv-dots{display:flex;flex-wrap:wrap;gap:6px;margin-top:16px}
+.nv-dots i{width:12px;height:12px;border-radius:50%;background:var(--accent)}
+.nv-dots i.p{background:#D9D1C4}
+.nv-legend{display:flex;gap:16px;margin-top:10px;font-size:12px;color:var(--ink-3)}
+.nv-legend span::before{content:"";display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:6px;background:var(--accent)}
+.nv-legend span.p::before{background:#D9D1C4}
+.nv-reframe{margin:0;font-size:18px;line-height:1.5;color:var(--ink-2)}
+.nv-reframe b{color:var(--ink);font-weight:600}
+.nv-tiers{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.nv-tier{border-radius:18px;padding:22px;display:flex;flex-direction:column;gap:4px}
+.nv-tier b{font-size:20px;letter-spacing:-.02em}
+.nv-tier>span:last-child{font-size:14px;color:var(--ink-2)}
+.nv-who{font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);margin-bottom:4px}
+.nv-tA{background:#E3E9F8}.nv-tB{background:#EAE5DE}.nv-tC{background:#EEF4C4}
+.nv-two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.nv-card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:24px}
+.nv-card-a{border-color:var(--accent)}
+.nv-loop,.nv-ch div{display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+.nv-loop span,.nv-ch span{font-size:14px;background:var(--bg);border:1px solid var(--line);border-radius:999px;padding:6px 12px}
+.nv-loop i,.nv-ch i{font-style:normal;color:var(--ink-3)}
+.nv-rep{color:#B4472F;border-color:#EAC5BA!important;background:#FBEEEA!important;font-weight:600}
+.nv-qs{margin:0;padding:0;list-style:none;counter-reset:q;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.nv-qs li{counter-increment:q;font-size:14px;background:#E3E9F8;border-radius:10px;padding:10px 12px}
+.nv-qs li::before{content:"Q" counter(q);font-weight:700;color:var(--accent);margin-right:8px;font-size:12px}
+.nv-foot{margin:14px 0 0;font-size:13px;color:var(--ink-3);line-height:1.5}
+.nv-moves{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px;align-items:start}
+.nv-mv{background:#fff;border:1px solid var(--line);border-radius:18px;padding:20px 18px;display:flex;flex-direction:column;gap:12px;min-height:250px}
+.nv-n{font-size:13px;font-weight:700;color:var(--accent)}
+.nv-mv h3{margin:0;font-size:18px;line-height:1.2;letter-spacing:-.02em;font-weight:600}
+.nv-shift{margin-top:auto;display:flex;flex-direction:column;gap:6px;font-size:13px;line-height:1.35}
+.nv-from{color:var(--ink-3);text-decoration:line-through;text-decoration-color:#c8bfb0}
+.nv-to{font-weight:600}.nv-to::before{content:"→ ";color:var(--accent)}
+.nv-more summary{cursor:pointer;list-style:none;font-size:12px;font-weight:600;color:var(--accent);text-decoration:underline;text-underline-offset:3px}
+.nv-more summary::-webkit-details-marker{display:none}
+.nv-more[open] summary{margin-bottom:10px}
+.nv-more p{margin:0 0 10px;font-size:13px;line-height:1.5;color:var(--ink-2)}
+.nv-ch{margin-top:8px}.nv-ch b{display:block;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);margin-bottom:6px}
+.nv-ch span{font-size:12px;padding:4px 9px}
+.nv-after span{background:#E3E9F8;border-color:#C9D5F2}
+.nv-voice{background:#fff;border:1px solid var(--line);border-radius:18px;padding:24px;display:flex;flex-direction:column;gap:12px}
+.nv-voice q{font-size:clamp(20px,2vw,26px);font-weight:600;letter-spacing:-.02em;line-height:1.2;quotes:"“" "”"}
+.nv-voice p{margin:0;font-size:15px;line-height:1.55;color:var(--ink-2)}
+.nv-voice p b{color:var(--ink);font-weight:600}
+.nv-bars{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.nv-bar{background:#fff;border:1px solid var(--line);border-radius:18px;padding:22px}
+.nv-lab{font-size:13px;font-weight:600;color:var(--ink-3)}
+.nv-row{display:grid;grid-template-columns:48px minmax(0,1fr) auto;align-items:center;gap:10px;margin-top:14px;font-size:13px;color:var(--ink-3)}
+.nv-track{height:12px}.nv-track i{display:block;height:100%;border-radius:6px;background:#D9D1C4}
+.nv-af .nv-track i{background:var(--accent)}
+.nv-row b{font-size:15px;color:var(--ink);white-space:nowrap}.nv-af b{color:var(--accent)}
+.nv-delta{display:inline-block;margin-top:16px;background:var(--lime);border-radius:999px;padding:4px 10px;font-size:12px;font-weight:700}
+.nv-src{margin:-16px 0 0;font-size:13px;line-height:1.5;color:var(--ink-3);max-width:760px}
+.nv-chips{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:10px}
+.nv-chips li{background:#fff;border:1px solid var(--line);border-radius:999px;padding:9px 15px;font-size:14px}
+.nv-chips li::before{content:"✓";color:var(--accent);font-weight:700;margin-right:8px}
+.nv-role li::before{content:none}
+.nv-trio{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.nv-trio div{background:#fff;border:1px solid var(--line);border-radius:18px;padding:22px}
+.nv-trio b{font-size:clamp(22px,2.2vw,28px);letter-spacing:-.02em}
+.nv-trio .nv-hi{background:#E3E9F8;border-color:#C9D5F2}
+.nv-time{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;position:relative}
+.nv-time li{position:relative;padding:22px 20px 0 0;border-top:2px solid var(--line-2)}
+.nv-time li::before{content:"";position:absolute;top:-7px;left:0;width:12px;height:12px;border-radius:50%;background:var(--line-2)}
+.nv-time li.nv-now{border-top-color:var(--accent)}.nv-time li.nv-now::before{background:var(--accent);box-shadow:0 0 0 5px rgba(39,83,201,.15)}
+.nv-time b{font-size:16px;line-height:1.35;font-weight:600}
+@media (max-width:1100px){.nv-moves{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width:860px){
+  .nv-funnel{grid-template-columns:1fr;gap:14px}.nv-arrow{width:2px;height:36px;margin-left:24px}.nv-arrow::after{right:-5px;top:auto;bottom:-2px;border:6px solid transparent;border-top-color:var(--accent)}
+  .nv-two,.nv-bars,.nv-tiers{grid-template-columns:1fr}.nv-moves{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .nv-time{grid-template-columns:1fr;gap:18px;border-left:2px solid var(--line-2);margin-left:5px;padding-left:20px}
+  .nv-time li{border-top:0;padding:0}.nv-time li::before{top:4px;left:-27px}
+}
+.sx-in>.nv-sub:first-child{margin-top:0}
+.sx.open .sx-btn{padding-bottom:12px}
+.nv-sub,.nv-reframe,.nv-src{text-wrap:pretty}
+.nv-card{display:flex;flex-direction:column}
+@media (max-width:560px){.nv-reqs{grid-template-columns:repeat(2,minmax(0,1fr))}.nv-moves,.nv-trio,.nv-qs{grid-template-columns:1fr}.nv-mv{min-height:0}.nv-sub,.nv-src{margin-top:-8px}}
 </style>
 <script data-goatcounter="https://kritima.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </head>
@@ -327,160 +417,151 @@ h3 { font-weight: 600; font-size: var(--t-h3); line-height: 1.3; letter-spacing:
 
 <main class="wrap">
 
-  <!-- 01 (original visual design) -->
   <!-- ============ 01 PROBLEM ============ -->
-<section class="v1 sec" aria-labelledby="s1">
-  <div class="rule"><span>01</span><span>The problem</span></div>
-  <div class="split">
-    <div class="split-main">
-      <h2 class="h2" id="s1">The problem wasn't ambition. It was <em>capacity.</em></h2>
-      <p class="lede">A complex, operationally heavy product ecosystem. Five designers, around twenty PMs — and every request entered the same Design queue.</p>
+  <section class="sec" aria-labelledby="s1">
+    <div class="rule"><span>01</span><span>The problem</span></div>
+    <h2 id="s1">5 designers. 20 PMs. <em>One queue.</em></h2>
+    <p class="nv-sub">Every request, big or small, waited for the same five people.</p>
+    <div class="nv-funnel">
+      <div><span class="nv-tag">Six kinds of request</span>
+        <ul class="nv-reqs"><li>Quick UI fix</li><li>Small interaction change</li><li>Ops workflow experiment</li><li>Pilot prototype</li><li>New requirement</li><li>New flow to validate</li></ul></div>
+      <div class="nv-arrow" aria-hidden="true"></div>
+      <div class="nv-queue"><div class="nv-big">1 queue</div><p>Design became the bottleneck</p>
+        <div class="nv-dots" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i class="p"></i><i class="p"></i><i class="p"></i><i class="p"></i><i class="p"></i><i class="p"></i><i class="p"></i><i class="p"></i><i class="p"></i><i class="p"></i><i class="p"></i><i class="p"></i><i class="p"></i><i class="p"></i><i class="p"></i><i class="p"></i><i class="p"></i><i class="p"></i><i class="p"></i><i class="p"></i></div>
+        <div class="nv-legend"><span>5 designers</span><span class="p">~20 PMs</span></div></div>
     </div>
-    <div class="ratio">
-      <div class="r-row"><b class="r-n acc">5</b><span class="r-l">Designers</span></div>
-      <div class="dots"><i class="dot d"></i><i class="dot d"></i><i class="dot d"></i><i class="dot d"></i><i class="dot d"></i></div>
-      <div class="r-row"><b class="r-n">~20</b><span class="r-l">Product Managers</span></div>
-      <div class="dots"><i class="dot p"></i><i class="dot p"></i><i class="dot p"></i><i class="dot p"></i><i class="dot p"></i><i class="dot p"></i><i class="dot p"></i><i class="dot p"></i><i class="dot p"></i><i class="dot p"></i><i class="dot p"></i><i class="dot p"></i><i class="dot p"></i><i class="dot p"></i><i class="dot p"></i><i class="dot p"></i><i class="dot p"></i><i class="dot p"></i><i class="dot p"></i><i class="dot p"></i></div>
+    <p class="nv-reframe">Not “how can designers work faster?” but <b>“why does every request need a designer?”</b></p>
+    <div>
+      <span class="nv-tag">So I split the work by complexity</span>
+      <div class="nv-tiers">
+        <div class="nv-tier nv-tA"><span class="nv-who">Tier A · Designer-led</span><b>Hard problems</b><span>Strategy, complex UX, critical journeys</span></div>
+        <div class="nv-tier nv-tB"><span class="nv-who">Tier B · Product + Design</span><b>Experiments</b><span>Prototypes, pilots, early validation</span></div>
+        <div class="nv-tier nv-tC"><span class="nv-who">Tier C · AI-assisted</span><b>Repeatable work</b><span>Small changes, visual QA</span></div>
+      </div>
     </div>
-  </div>
+  </section>
 
-  <div class="block">
-    <span class="kicker">The Design queue</span>
-    <h3 class="h3">Six kinds of request. One queue. Every one waited for a designer.</h3>
-    <div class="q-grid"><div class="q-card"><span class="q-n">01</span><span>A quick UI fix for Engineering</span></div><div class="q-card"><span class="q-n">02</span><span>A small interaction change</span></div><div class="q-card"><span class="q-n">03</span><span>An operational workflow experiment</span></div><div class="q-card"><span class="q-n">04</span><span>A prototype for a pilot</span></div><div class="q-card"><span class="q-n">05</span><span>A new product requirement</span></div><div class="q-card"><span class="q-n">06</span><span>A completely new flow needing stakeholder validation</span></div></div>
-  </div>
-
-  <div class="callout">
-    <p class="co-big">Design had become the bottleneck.</p>
-    <p>Not because the team was slow — because <b>every request, big or small, had to pass through the same five people.</b></p>
-  </div>
-
-  <div class="reframe">
-    <div class="rf-q">
-      <span class="kicker">Instead of asking</span>
-      <p class="rf-old">“How can my designers work faster?”</p>
-      <span class="kicker">I asked</span>
-      <p class="rf-new">“Why does every one of these things need to pass through a <em>designer?</em>”</p>
-    </div>
-    <span class="kicker">So I split the work by complexity</span>
-    <div class="tiers">
-      <div class="tier"><div class="t-top"><span>Tier A</span><span class="pill navy">Designer-led</span></div><b>High-impact design work</b><span>Strategy, complex UX, new systems, critical journeys and final design decisions.</span></div>
-      <div class="tier"><div class="t-top"><span>Tier B</span><span class="pill">Product + Design</span></div><b>Exploratory &amp; experimental</b><span>Prototypes, operational experiments, early validation and pilots.</span></div>
-      <div class="tier"><div class="t-top"><span>Tier C</span><span class="pill blue">AI-assisted · Product-led</span></div><b>Small, repeatable work</b><span>Small changes, early prototypes and visual QA — work a designer didn't need to start from zero.</span></div>
-    </div>
-    <p class="rf-close">The goal wasn't to remove Design. It was to <b>remove unnecessary dependency on it.</b></p>
-  </div>
-</section>
-
-  <!-- 02 -->
+  <!-- ============ 02 INTAKE ============ -->
   <section class="sec" aria-labelledby="s2">
     <div class="rule"><span>02</span><span>Fixing the front door</span></div>
-    <h2 id="s2">Before touching AI, I fixed the workflow underneath it.</h2>
-    <p class="prose">There was no real intake between Product and Design. Requirements mostly arrived with gaps — missing context, unclear goals, no shared idea of “done” — and Design was left to fill them in, in a loop:</p>
-    <p class="loop"><span>PM idea</span><span class="ar" aria-hidden="true">→</span><span>Designer asks questions</span><span class="ar" aria-hidden="true">→</span><span>More context</span><span class="ar" aria-hidden="true">→</span><span>First design</span><span class="ar" aria-hidden="true">→</span><span>Stakeholder feedback</span><span class="ar" aria-hidden="true">→</span><span>More clarification</span><span class="ar" aria-hidden="true">→</span><span>Repeat</span></p>
-    <div class="intake">
-      <div class="in-card">
-        <h3>A lightweight Design Intake: the minimum information to decide whether something needs Design — and which tier.</h3>
-        <ol><li><span>Q1</span>What are we solving?</li><li><span>Q2</span>Why does it matter?</li><li><span>Q3</span>Who is affected?</li><li><span>Q4</span>What needs to be designed?</li><li><span>Q5</span>What needs to be tested?</li><li><span>Q6</span>What does “done” look like?</li></ol>
-        <p class="small" style="color: var(--ink-3)">Pressure-tested with Product so it would actually be adopted.</p>
-      </div>
+    <h2 id="s2">Before touching AI, I fixed <em>the intake.</em></h2>
+    <p class="nv-sub">Requirements arrived with gaps, so Design filled them in, round after round.</p>
+    <div class="nv-two">
+      <div class="nv-card"><span class="nv-tag">Before · the loop</span>
+        <div class="nv-loop"><span>PM idea</span><i aria-hidden="true">→</i><span>Designer asks questions</span><i aria-hidden="true">→</i><span>More context</span><i aria-hidden="true">→</i><span>First design</span><i aria-hidden="true">→</i><span>Stakeholder feedback</span><i aria-hidden="true">→</i><span>More clarification</span><i aria-hidden="true">→</i><span class="nv-rep">↺ Repeat</span></div></div>
+      <div class="nv-card nv-card-a"><span class="nv-tag">After · a 6-question Design Intake</span>
+        <ol class="nv-qs"><li>What are we solving?</li><li>Why does it matter?</li><li>Who is affected?</li><li>What needs to be designed?</li><li>What needs to be tested?</li><li>What does “done” look like?</li></ol>
+        <p class="nv-foot">Decides whether something needs Design, and which tier. Pressure-tested with Product so it would be adopted.</p></div>
     </div>
   </section>
 
-  <!-- 03 -->
+  <!-- ============ 03 FIVE MOVES ============ -->
   <section class="sec" aria-labelledby="s3">
     <div class="rule"><span>03</span><span>Five moves</span></div>
-    <h2 id="s3">Not one giant “AI transformation” — five small fixes, each aimed at one bottleneck.</h2>
-    <div class="moves">
-      <article class="move">
-        <div class="mv-head"><span class="mv-n">01</span><h3>Teaching Product to prototype with AI</h3><p>Selected PMs learned agentic design workflows in Figma — inside a safe operating model: use the Design System, pair with a designer, get vetted before dev.</p></div>
-        <div class="mv-flow">
-          <p class="fl before"><span class="fl-l">Before</span><span class="fl-c"><span>PM idea</span><span class="ar" aria-hidden="true">→</span><span>Design queue</span><span class="ar" aria-hidden="true">→</span><span>Designer builds every step</span></span></p>
-          <p class="fl after"><span class="fl-l">After</span><span class="fl-c"><span class="k">PM prototypes with AI</span><span class="ar" aria-hidden="true">→</span><span>Designer vets</span><span class="ar" aria-hidden="true">→</span><span>Ready for dev</span></span></p>
-        </div>
+    <h2 id="s3">Five small fixes, <em>one bottleneck each.</em></h2>
+    <div class="nv-moves">
+      <article class="nv-mv">
+        <span class="nv-n">01</span>
+        <h3>PMs prototype with AI</h3>
+        <div class="nv-shift"><span class="nv-from">Designer builds every step</span><span class="nv-to">PM prototypes, designer vets</span></div>
+        <details class="nv-more"><summary>Before / after</summary>
+          <p>Selected PMs learned agentic design workflows in Figma: use the design system, pair with a designer, get vetted before dev.</p>
+          <div class="nv-ch"><b>Before</b><div><span>PM idea</span><i aria-hidden="true">→</i><span>Design queue</span><i aria-hidden="true">→</i><span>Designer builds every step</span></div></div>
+          <div class="nv-ch nv-after"><b>After</b><div><span>PM prototypes with AI</span><i aria-hidden="true">→</i><span>Designer vets</span><i aria-hidden="true">→</i><span>Ready for dev</span></div></div>
+        </details>
       </article>
-      <article class="move">
-        <div class="mv-head"><span class="mv-n">02</span><h3>Making AI speak the Design System</h3><p>With the Design Systems team, I connected the AI workflow to our components and patterns — so 20 PMs wouldn't create 20 versions of our UI.</p></div>
-        <div class="mv-flow">
-          <p class="fl before"><span class="fl-l">Before</span><span class="fl-c"><span>Unconstrained AI</span><span class="ar" aria-hidden="true">→</span><span>A new UI language every time</span></span></p>
-          <p class="fl after"><span class="fl-l">After</span><span class="fl-c"><span class="k">AI + Design System</span><span class="ar" aria-hidden="true">→</span><span>Familiar components, ready to evolve</span></span></p>
-        </div>
+      <article class="nv-mv">
+        <span class="nv-n">02</span>
+        <h3>AI speaks the design system</h3>
+        <div class="nv-shift"><span class="nv-from">New UI language each time</span><span class="nv-to">Familiar components</span></div>
+        <details class="nv-more"><summary>Before / after</summary>
+          <p>With the Design Systems team, I connected the AI workflow to our components, so 20 PMs wouldn’t create 20 versions of our UI.</p>
+          <div class="nv-ch"><b>Before</b><div><span>Unconstrained AI</span><i aria-hidden="true">→</i><span>A new UI language every time</span></div></div>
+          <div class="nv-ch nv-after"><b>After</b><div><span>AI + Design System</span><i aria-hidden="true">→</i><span>Familiar components, ready to evolve</span></div></div>
+        </details>
       </article>
-      <article class="move">
-        <div class="mv-head"><span class="mv-n">03</span><h3>Figma became the collaboration layer</h3><p>PMs moved from Lovable into Figma Make, so Product and Design commented on and iterated over the same artifact.</p></div>
-        <div class="mv-flow">
-          <p class="fl before"><span class="fl-l">Before</span><span class="fl-c"><span>Lovable prototype</span><span class="ar" aria-hidden="true">→</span><span>Designer decodes intent</span><span class="ar" aria-hidden="true">→</span><span>Recreates flow</span><span class="ar" aria-hidden="true">→</span><span>Applies Design System</span><span class="ar" aria-hidden="true">→</span><span>Preps for production</span></span></p>
-          <p class="fl after"><span class="fl-l">After</span><span class="fl-c"><span>PM idea</span><span class="ar" aria-hidden="true">→</span><span class="k">AI prototype in Figma Make</span><span class="ar" aria-hidden="true">→</span><span>Design clarification</span><span class="ar" aria-hidden="true">→</span><span>Ops validation</span><span class="ar" aria-hidden="true">→</span><span>Production design</span></span></p>
-        </div>
+      <article class="nv-mv">
+        <span class="nv-n">03</span>
+        <h3>One shared layer in Figma</h3>
+        <div class="nv-shift"><span class="nv-from">Rebuild Lovable prototypes</span><span class="nv-to">Iterate on one artifact</span></div>
+        <details class="nv-more"><summary>Before / after</summary>
+          <p>PMs moved from Lovable into Figma Make, so Product and Design worked on the same artifact.</p>
+          <div class="nv-ch"><b>Before</b><div><span>Lovable prototype</span><i aria-hidden="true">→</i><span>Designer decodes intent</span><i aria-hidden="true">→</i><span>Recreates flow</span><i aria-hidden="true">→</i><span>Applies Design System</span><i aria-hidden="true">→</i><span>Preps for production</span></div></div>
+          <div class="nv-ch nv-after"><b>After</b><div><span>PM idea</span><i aria-hidden="true">→</i><span>AI prototype in Figma Make</span><i aria-hidden="true">→</i><span>Design clarification</span><i aria-hidden="true">→</i><span>Ops validation</span><i aria-hidden="true">→</i><span>Production design</span></div></div>
+        </details>
       </article>
-      <article class="move">
-        <div class="mv-head"><span class="mv-n">04</span><h3>From legacy screens to usable design inputs</h3><p>I connected legacy product APIs with Claude to extract existing flows — replacing manual archaeology with a structured starting point.</p></div>
-        <div class="mv-flow">
-          <p class="fl before"><span class="fl-l">Before</span><span class="fl-c"><span>Screen recording</span><span class="ar" aria-hidden="true">→</span><span>Screenshots</span><span class="ar" aria-hidden="true">→</span><span>Reconstruct the flow</span><span class="ar" aria-hidden="true">→</span><span>Translate to Design System</span><span class="ar" aria-hidden="true">→</span><span>Start designing</span></span></p>
-          <p class="fl after"><span class="fl-l">After</span><span class="fl-c"><span>Legacy APIs</span><span class="ar" aria-hidden="true">→</span><span class="k">Claude extracts flows</span><span class="ar" aria-hidden="true">→</span><span>Brought into Figma</span><span class="ar" aria-hidden="true">→</span><span>Design starts on the new problem</span></span></p>
-        </div>
+      <article class="nv-mv">
+        <span class="nv-n">04</span>
+        <h3>Legacy screens, extracted</h3>
+        <div class="nv-shift"><span class="nv-from">Screen-record and rebuild</span><span class="nv-to">Claude extracts the flow</span></div>
+        <details class="nv-more"><summary>Before / after</summary>
+          <p>I connected legacy product APIs with Claude to extract existing flows, replacing manual archaeology.</p>
+          <div class="nv-ch"><b>Before</b><div><span>Screen recording</span><i aria-hidden="true">→</i><span>Screenshots</span><i aria-hidden="true">→</i><span>Reconstruct the flow</span><i aria-hidden="true">→</i><span>Translate to Design System</span><i aria-hidden="true">→</i><span>Start designing</span></div></div>
+          <div class="nv-ch nv-after"><b>After</b><div><span>Legacy APIs</span><i aria-hidden="true">→</i><span>Claude extracts flows</span><i aria-hidden="true">→</i><span>Brought into Figma</span><i aria-hidden="true">→</i><span>Design starts on the new problem</span></div></div>
+        </details>
       </article>
-      <article class="move">
-        <div class="mv-head"><span class="mv-n">05</span><h3>Taking Visual QA out of the Design queue</h3><p>AI flags the obvious — spacing, alignment, missing elements — before a designer looks. PMs later adopted it for their own products.</p></div>
-        <div class="mv-flow">
-          <p class="fl before"><span class="fl-l">Before</span><span class="fl-c"><span>Open build</span><span class="ar" aria-hidden="true">→</span><span>Compare to design</span><span class="ar" aria-hidden="true">→</span><span>Document mismatches</span><span class="ar" aria-hidden="true">→</span><span>Send back</span><span class="ar" aria-hidden="true">→</span><span>Repeat</span></span></p>
-          <p class="fl after"><span class="fl-l">After</span><span class="fl-c"><span>Build</span><span class="ar" aria-hidden="true">→</span><span class="k">AI checks the obvious</span><span class="ar" aria-hidden="true">→</span><span>Designer reviews</span></span></p>
-        </div>
+      <article class="nv-mv">
+        <span class="nv-n">05</span>
+        <h3>Visual QA, automated</h3>
+        <div class="nv-shift"><span class="nv-from">Manual compare and repeat</span><span class="nv-to">AI flags, designer reviews</span></div>
+        <details class="nv-more"><summary>Before / after</summary>
+          <p>AI flags spacing, alignment and missing elements before a designer looks. PMs later adopted it for their own products.</p>
+          <div class="nv-ch"><b>Before</b><div><span>Open build</span><i aria-hidden="true">→</i><span>Compare to design</span><i aria-hidden="true">→</i><span>Document mismatches</span><i aria-hidden="true">→</i><span>Send back</span><i aria-hidden="true">→</i><span>Repeat</span></div></div>
+          <div class="nv-ch nv-after"><b>After</b><div><span>Build</span><i aria-hidden="true">→</i><span>AI checks the obvious</span><i aria-hidden="true">→</i><span>Designer reviews</span></div></div>
+        </details>
       </article>
     </div>
   </section>
 
-  <!-- 04 -->
+  <!-- ============ 04 PEOPLE ============ -->
   <section class="sec" aria-labelledby="s4">
     <div class="rule"><span>04</span><span>Bringing people along</span></div>
-    <h2 id="s4">The hardest part wasn't the tooling. It was <em>trust</em> — on both sides.</h2>
-    <div class="two">
-      <div><h3>Designers: “Why train PMs to do our job?”</h3><p>Designers were hesitant to train PMs. I framed it as the way to <b>free their bandwidth for high-impact work</b> — and it changed their role: today they work as experts PMs consult, not as tools executing PM requests.</p></div>
-      <div><h3>PMs: “Figma Make isn't as good as Lovable.”</h3><p>PMs pushed back — they were new to Figma Make and biased toward Lovable. So I ran an experiment: <b>the same prompt in both tools.</b> The results were comparable, Figma Make's arguably better — and far easier for Design to translate into production.</p></div>
+    <h2 id="s4">The hardest part was <em>trust</em>, on both sides.</h2>
+    <div class="nv-two">
+      <div class="nv-voice"><span class="nv-tag">Designers asked</span><q>Why train PMs to do our job?</q><p><b>I framed it as freeing their bandwidth for high-impact work.</b> Designers became the experts PMs consult, not tools executing requests.</p></div>
+      <div class="nv-voice"><span class="nv-tag">PMs said</span><q>Figma Make isn’t as good as Lovable.</q><p><b>I ran the same prompt in both.</b> Results were comparable, and Figma Make’s were far easier for Design to take to production.</p></div>
     </div>
   </section>
 
-  <!-- 05 -->
+  <!-- ============ 05 RESULTS ============ -->
   <section class="sec" aria-labelledby="s5">
     <div class="rule"><span>05</span><span>What changed</span></div>
-    <h2 id="s5">Handoffs got <em>faster</em>. Feedback came earlier.</h2>
-    <div class="metrics">
-      <div class="m-head">
-        <span class="cap">Production-readiness turnaround · design → dev handoff</span>
-        <p>Measured across <b>4 roadmap projects over 4 months</b> — 2 medium and 2 large — tracked myself, project by project.</p>
-        <p><b>What drove it:</b> Product and Design prototyping together in Figma Make cut the clarification loop and the rebuild from PM prototype to design file. The review SLA then removed ~2 days of waiting on PM feedback per review round.</p>
-      </div>
-      <div class="m-grid">
-        <div class="m-card"><span class="m-k">Medium roadmap items</span><span class="m-b">Before: 8 days</span><div class="m-now"><b>3.5</b><em>working days</em></div><span class="m-note">~56% faster · 2 projects</span></div>
-        <div class="m-card"><span class="m-k">Large roadmap items</span><span class="m-b">Before: ~1 month</span><div class="m-now"><b>12</b><em>working days</em></div><span class="m-note">2 projects, similar results</span></div>
-        <div class="m-card"><span class="m-k">PM review time · new SOP</span><span class="m-b">Before: ~3 days</span><div class="m-now"><b>1</b><em>working day</em></div><span class="m-note">Written into the Design × Product SOP</span></div>
-      </div>
-      <p class="m-foot"><b>Why the review SLA mattered:</b> slow PM reviews ate into design time and forced designers to rush to hit ETAs. I tracked the gap, wrote it into the SOP and circulated it.</p>
+    <h2 id="s5">Handoffs got <em>faster.</em> Feedback came earlier.</h2>
+    <div class="nv-bars">
+      <div class="nv-bar"><span class="nv-lab">Medium roadmap items</span>
+        <div class="nv-row"><span>Before</span><div class="nv-track"><i style="width:100%"></i></div><b>8 days</b></div>
+        <div class="nv-row nv-af"><span>After</span><div class="nv-track"><i style="width:44%"></i></div><b>3.5 days</b></div>
+        <span class="nv-delta">~56% faster</span></div>
+      <div class="nv-bar"><span class="nv-lab">Large roadmap items</span>
+        <div class="nv-row"><span>Before</span><div class="nv-track"><i style="width:100%"></i></div><b>~1 month</b></div>
+        <div class="nv-row nv-af"><span>After</span><div class="nv-track"><i style="width:40%"></i></div><b>12 days</b></div>
+        <span class="nv-delta">Similar results</span></div>
+      <div class="nv-bar"><span class="nv-lab">PM review time</span>
+        <div class="nv-row"><span>Before</span><div class="nv-track"><i style="width:100%"></i></div><b>~3 days</b></div>
+        <div class="nv-row nv-af"><span>After</span><div class="nv-track"><i style="width:33%"></i></div><b>1 day</b></div>
+        <span class="nv-delta">In the Design × Product SOP</span></div>
     </div>
-    <div class="cols4">
-      <div><h3>Product became self-sufficient</h3><p>PMs explored and prototyped smaller changes before bringing work to Design.</p></div>
-      <div><h3>Design got breathing room</h3><p>More time for complex UX, systems thinking and design quality.</p></div>
-      <div><h3>Feedback moved earlier</h3><p>Operations reacted to real prototypes, not abstract requirements.</p></div>
-      <div><h3>Prototypes weren't thrown away</h3><p>Exploration happened in Figma, so approved ideas became the production starting point.</p></div>
-    </div>
+    <p class="nv-src">Working days, tracked myself across 4 roadmap projects over 4 months (2 medium, 2 large). Drivers: shared prototyping in Figma Make, and a review SLA that removed ~2 days of waiting per round.</p>
+    <ul class="nv-chips"><li>Product became self-sufficient</li><li>Design got breathing room</li><li>Feedback moved earlier</li><li>Prototypes weren’t thrown away</li></ul>
   </section>
 
-  <!-- 06 -->
+  <!-- ============ 06 ROLE ============ -->
   <section class="sec" aria-labelledby="s6">
     <div class="rule"><span>06</span><span>The lesson &amp; my role</span></div>
-    <h2 id="s6">AI didn't replace Design. It <em>redistributed</em> it across the Product organisation.</h2>
-    <div class="trio">
-      <div><span class="cap">PMs handle</span><b>Exploration</b></div>
-      <div><span class="cap">AI handles</span><b>Repetition</b></div>
-      <div><span class="cap">Designers focus on</span><b>Complexity</b></div>
+    <h2 id="s6">AI didn’t replace Design. It <em>redistributed</em> it.</h2>
+    <div class="nv-trio">
+      <div><span class="nv-tag">PMs handle</span><b>Exploration</b></div>
+      <div><span class="nv-tag">AI handles</span><b>Repetition</b></div>
+      <div class="nv-hi"><span class="nv-tag">Designers focus on</span><b>Complexity</b></div>
     </div>
-    <p class="prose">My job as Design Manager: <b>designing the system that connects all three.</b></p>
-    <ol class="steps">
-      <li><b>An experiment in my pod</b><span>“How can this team move faster?”</span></li>
-      <li><b>VP of Product saw the impact</b><span>Asked me to take it across other Product pods.</span></li>
-      <li class="now"><b>Now: scaling the model</b><span>Rolling out across Product pods.</span></li>
+    <p class="nv-sub">My job as Design Manager: <b>designing the system that connects all three.</b></p>
+    <ol class="nv-time">
+      <li><span class="nv-tag">Started</span><b>An experiment in my pod</b></li>
+      <li><span class="nv-tag">Then</span><b>VP of Product asked me to take it across pods</b></li>
+      <li class="nv-now"><span class="nv-tag">Now</span><b>Rolling out across Product pods</b></li>
     </ol>
-    <div><p class="cap" style="margin-bottom: 8px">What I did</p><p class="role"><span>Diagnosed the bottleneck</span><span class="ar" aria-hidden="true">→</span><span>Redesigned the intake</span><span class="ar" aria-hidden="true">→</span><span>Tested tools</span><span class="ar" aria-hidden="true">→</span><span>Trained PMs &amp; designers</span><span class="ar" aria-hidden="true">→</span><span>Partnered with Design Systems</span><span class="ar" aria-hidden="true">→</span><span>Wrote the Design × Product SOP</span><span class="ar" aria-hidden="true">→</span><span>Scaled beyond my pod</span></p></div>
+    <div><span class="nv-tag">My role, end to end</span>
+      <ul class="nv-chips nv-role"><li>Diagnosed the bottleneck</li><li>Redesigned the intake</li><li>Tested tools</li><li>Trained PMs &amp; designers</li><li>Partnered with Design Systems</li><li>Wrote the Design × Product SOP</li><li>Scaled beyond my pod</li></ul></div>
   </section>
 
   <footer class="foot">
