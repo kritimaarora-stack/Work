@@ -421,7 +421,7 @@ html.gate-on .gate{display:flex}
 @media (max-width:520px){.sel h2{font-size:8.5vw!important}}
 /* very small phones: short switch labels so the bar fits */
 .s-sm{display:none}
-@media (max-width:399px){.s-lg{display:none}.s-sm{display:inline}}
+@media (max-width:374px){.s-lg{display:none}.s-sm{display:inline}}
 /* bar edges line up with the page content (1280 container, 20px gutter) */
 .mbar-in{max-width:1280px!important}
 @media (max-width:430px){.mswitch a{padding:8px 11px!important}}
@@ -451,11 +451,9 @@ html.gate-on .gate{display:flex}
 </style>
 <script>
 (function(){try{
+  /* The full portfolio is the default. The starter screen only shows when asked for with ?view=choose */
   var q=new URLSearchParams(location.search).get("view");
-  if(q==="choose"){sessionStorage.removeItem("kaView");}
-  var seen=sessionStorage.getItem("kaView");
-  if(q!=="full"&&!seen&&!location.hash){document.documentElement.classList.add("gate-on");}
-  if(q==="full"){sessionStorage.setItem("kaView","full");}
+  if(q==="choose"){document.documentElement.classList.add("gate-on");}
 }catch(e){}})();
 </script>
 <script data-goatcounter="https://kritima.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
@@ -477,8 +475,8 @@ html.gate-on .gate{display:flex}
     <div class="g-switch">
       <div class="g-seg" role="radiogroup" aria-label="Choose a version" data-mode="short">
         <span class="g-thumb" aria-hidden="true"></span>
-        <button type="button" class="g-opt" role="radio" aria-checked="true" data-mode="short"><b>5 minutes</b><small>The executive review</small></button>
-        <button type="button" class="g-opt" role="radio" aria-checked="false" tabindex="-1" data-mode="full"><b>As long as you like</b><small>The complete story</small></button>
+        <button type="button" class="g-opt" role="radio" aria-checked="true" data-mode="short"><b>5 minutes</b><small>5 min Review</small></button>
+        <button type="button" class="g-opt" role="radio" aria-checked="false" tabindex="-1" data-mode="full"><b>As long as you like</b><small>Work samples</small></button>
       </div>
       <div class="g-panels">
         <div class="g-panel" data-panel="short" aria-hidden="false">
@@ -487,7 +485,7 @@ html.gate-on .gate{display:flex}
         </div>
         <div class="g-panel" data-panel="full" aria-hidden="true">
           <p>Full case studies with the research, decisions and process, plus my experiments building with AI.</p>
-          <button type="button" class="g-go" data-view="full" tabindex="-1">Read the complete story <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+          <button type="button" class="g-go" data-view="full" tabindex="-1">See the work samples <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
         </div>
       </div>
     </div>
@@ -496,10 +494,10 @@ html.gate-on .gate{display:flex}
 </div>
 <header class="mbar">
   <div class="mbar-in">
-    <a class="mme" href="index.html?view=choose">Kritima Arora</a>
+    <a class="mme" href="index.html">Kritima Arora</a>
     <div class="mswitch" role="navigation" aria-label="Portfolio version">
-      <a href="5-minute.html" data-view="short"><span class="s-lg">Executive review</span><span class="s-sm">Review</span></a>
-      <a href="index.html?view=full" aria-current="page"><span class="s-lg">Complete story</span><span class="s-sm">Full story</span></a>
+      <a href="5-minute.html" data-view="short"><span class="s-lg">5 min Review</span><span class="s-sm">5 min</span></a>
+      <a href="index.html?view=full" aria-current="page"><span class="s-lg">Work samples</span><span class="s-sm">Work</span></a>
     </div>
   </div>
 </header>
@@ -699,7 +697,7 @@ window.kaBrief=function(el){
   try{sessionStorage.setItem("kaView","short");}catch(e){}
   v.className="brief-veil";v.setAttribute("aria-hidden","true");
   v.style.setProperty("--x",(r.left+r.width/2)+"px");v.style.setProperty("--y",(r.top+r.height/2)+"px");
-  v.innerHTML='<div class="bv"><span class="bv-k">Executive review</span><p class="bv-t">Kritima Arora</p><p class="bv-s">5 minutes &middot; capabilities, results, fit</p></div>';
+  v.innerHTML='<div class="bv"><span class="bv-k">5 min Review</span><p class="bv-t">Kritima Arora</p><p class="bv-s">5 minutes &middot; capabilities, results, fit</p></div>';
   document.body.appendChild(v);void v.offsetWidth;v.classList.add("go");
   setTimeout(function(){location.href=href;},1250);
 };
