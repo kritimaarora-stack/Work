@@ -292,7 +292,9 @@ a:focus-visible,button:focus-visible{outline-color:var(--d-ink)}
 .dl-n{color:var(--d-sage-l);font-size:13px;font-weight:600}
 .dl-t{font-size:clamp(17px,1.6vw,21px);font-weight:500;letter-spacing:-.02em;color:var(--d-ink)}
 .dl-t em{font-style:normal;font-size:13px;font-weight:400;color:var(--d-mute);margin-left:12px;letter-spacing:0}
-.dl-m{font-size:clamp(20px,2vw,28px);font-weight:600;letter-spacing:-.03em;color:var(--d-sage-l);text-align:right;white-space:nowrap}
+.dl-m{display:flex;flex-direction:column;align-items:flex-end;gap:3px;text-align:right}
+.dl-v{font-size:clamp(20px,2vw,28px);font-weight:600;letter-spacing:-.03em;line-height:1.05;color:var(--d-sage-l);white-space:nowrap}
+.dl-ml{font-size:12.5px;font-weight:500;color:var(--d-ink2);white-space:nowrap}
 .dl-i{width:34px;height:34px;border-radius:50%;border:1px solid rgba(255,255,255,.2);position:relative;transition:background .2s,border-color .2s}
 .dl-i::before,.dl-i::after{content:"";position:absolute;left:50%;top:50%;width:12px;height:1.5px;background:var(--d-ink);transform:translate(-50%,-50%);transition:transform .3s}
 .dl-i::after{transform:translate(-50%,-50%) rotate(90deg)}
@@ -308,7 +310,7 @@ a:focus-visible,button:focus-visible{outline-color:var(--d-ink)}
 .dl-go{font-weight:600;color:var(--d-ink);text-decoration:underline;text-underline-offset:3px;text-decoration-color:rgba(255,255,255,.35)}
 @media (hover:hover){.dl-go:hover{color:var(--d-sage-l)}}
 @media (max-width:860px){.dl-b{grid-template-columns:1fr;gap:16px;padding-left:0}}
-@media (max-width:560px){.dl summary{grid-template-columns:26px minmax(0,1fr) auto 34px;gap:10px;padding:18px 0}.dl-t em{display:block;margin:3px 0 0}.dl-m{font-size:18px}.dl-i{width:30px;height:30px}}
+@media (max-width:560px){.dl summary{grid-template-columns:26px minmax(0,1fr) auto 34px;gap:10px;padding:18px 0}.dl-t em{display:block;margin:3px 0 0}.dl-v{font-size:18px}.dl-ml{font-size:11.5px}.dl-i{width:30px;height:30px}}
 @media (prefers-reduced-motion:reduce){.dl-b{animation:none}.dl-i,.dl-i::after{transition:none}}
 </style>
 <script data-goatcounter="https://kritima.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
@@ -362,7 +364,7 @@ a:focus-visible,button:focus-visible{outline-color:var(--d-ink)}
       <h3 class="gh">Products shipped</h3>
       <div class="dl-list">
         <details class="dl">
-          <summary><span class="dl-n">01</span><span class="dl-t">Fleet Management<em>Delhivery · Leadership</em></span><span class="dl-m">₹5.58L</span><span class="dl-i" aria-hidden="true"></span></summary>
+          <summary><span class="dl-n">01</span><span class="dl-t">Fleet Management<em>Delhivery · Leadership</em></span><span class="dl-m"><span class="dl-v">₹5.58L</span><span class="dl-ml">saved in 2 weeks</span></span><span class="dl-i" aria-hidden="true"></span></summary>
           <div class="dl-b">
             <p><b>Challenge</b>~₹97L a month spent hiring vehicles the network already had.</p>
             <p><b>What I did</b>Reframed "book a vehicle" into "use the capacity we have", with sharing as the default.</p>
@@ -371,7 +373,7 @@ a:focus-visible,button:focus-visible{outline-color:var(--d-ink)}
           </div>
         </details>
         <details class="dl">
-          <summary><span class="dl-n">02</span><span class="dl-t">Stocks onboarding<em>Upstox · IC Work</em></span><span class="dl-m">13% → 37%</span><span class="dl-i" aria-hidden="true"></span></summary>
+          <summary><span class="dl-n">02</span><span class="dl-t">Stocks onboarding<em>Upstox · IC Work</em></span><span class="dl-m"><span class="dl-v">13% → 37%</span><span class="dl-ml">30-day activation</span></span><span class="dl-i" aria-hidden="true"></span></summary>
           <div class="dl-b">
             <p><b>Challenge</b>200,000+ new accounts a month, but few ever placed a first trade.</p>
             <p><b>What I did</b>One entry for three investor types, two safe picks, and a calmer first order.</p>
@@ -380,7 +382,7 @@ a:focus-visible,button:focus-visible{outline-color:var(--d-ink)}
           </div>
         </details>
         <details class="dl">
-          <summary><span class="dl-n">03</span><span class="dl-t">First Mile rider app<em>Delhivery · IC Work + Leadership</em></span><span class="dl-m">8,967</span><span class="dl-i" aria-hidden="true"></span></summary>
+          <summary><span class="dl-n">03</span><span class="dl-t">First Mile rider app<em>Delhivery · IC Work + Leadership</em></span><span class="dl-m"><span class="dl-v">8,967</span><span class="dl-ml">riders on the new app</span></span><span class="dl-i" aria-hidden="true"></span></summary>
           <div class="dl-b">
             <p><b>Challenge</b>Riders planned routes from memory and searched for every pickup.</p>
             <p><b>What I did</b>Moved the app to sequenced stops, a map view and one-step scanning.</p>
@@ -389,7 +391,7 @@ a:focus-visible,button:focus-visible{outline-color:var(--d-ink)}
           </div>
         </details>
         <details class="dl">
-          <summary><span class="dl-n">04</span><span class="dl-t">IPO redesign<em>Upstox · IC Work</em></span><span class="dl-m">Live</span><span class="dl-i" aria-hidden="true"></span></summary>
+          <summary><span class="dl-n">04</span><span class="dl-t">IPO redesign<em>Upstox · IC Work</em></span><span class="dl-m"><span class="dl-v">Live</span><span class="dl-ml">redesigned on Upstox</span></span><span class="dl-i" aria-hidden="true"></span></summary>
           <div class="dl-b">
             <p><b>Challenge</b>~4,500 support tickets a month in hot markets; 5–6% participation.</p>
             <p><b>What I did</b>Traced tickets to their causes, then redesigned discovery, decisions and status.</p>
@@ -403,7 +405,7 @@ a:focus-visible,button:focus-visible{outline-color:var(--d-ink)}
       <h3 class="gh">Design at scale</h3>
       <div class="dl-list">
         <details class="dl">
-          <summary><span class="dl-n">05</span><span class="dl-t">Design, Unblocked<em>Delhivery · AI Enablement</em></span><span class="dl-m">8 → 3.5 days</span><span class="dl-i" aria-hidden="true"></span></summary>
+          <summary><span class="dl-n">05</span><span class="dl-t">Design, Unblocked<em>Delhivery · AI Enablement</em></span><span class="dl-m"><span class="dl-v">8 → 3.5 days</span><span class="dl-ml">design-to-dev handoff</span></span><span class="dl-i" aria-hidden="true"></span></summary>
           <div class="dl-b">
             <p><b>Challenge</b>5 designers, 20 PMs, one queue: design had become the bottleneck.</p>
             <p><b>What I did</b>Tiered the work, fixed intake, and taught PMs to prototype with AI in our design system.</p>
@@ -412,7 +414,7 @@ a:focus-visible,button:focus-visible{outline-color:var(--d-ink)}
           </div>
         </details>
         <details class="dl">
-          <summary><span class="dl-n">06</span><span class="dl-t">Onboarding Flow Generator<em>Delhivery · AI Tooling</em></span><span class="dl-m">No engineers</span><span class="dl-i" aria-hidden="true"></span></summary>
+          <summary><span class="dl-n">06</span><span class="dl-t">Onboarding Flow Generator<em>Delhivery · AI Tooling</em></span><span class="dl-m"><span class="dl-v">No engineers</span><span class="dl-ml">needed to build it</span></span><span class="dl-i" aria-hidden="true"></span></summary>
           <div class="dl-b">
             <p><b>Challenge</b>Every team redesigned onboarding from zero, repeating old mistakes.</p>
             <p><b>What I did</b>Built a four-agent system that drafts new flows from what we already know.</p>
@@ -421,7 +423,7 @@ a:focus-visible,button:focus-visible{outline-color:var(--d-ink)}
           </div>
         </details>
         <details class="dl">
-          <summary><span class="dl-n">07</span><span class="dl-t">Design Tokens<em>Delhivery · Team Enablement</em></span><span class="dl-m">20+</span><span class="dl-i" aria-hidden="true"></span></summary>
+          <summary><span class="dl-n">07</span><span class="dl-t">Design Tokens<em>Delhivery · Team Enablement</em></span><span class="dl-m"><span class="dl-v">20+</span><span class="dl-ml">products to unify</span></span><span class="dl-i" aria-hidden="true"></span></summary>
           <div class="dl-b">
             <p><b>Challenge</b>20+ products in my pod, no shared system, none looked alike.</p>
             <p><b>What I did</b>Made design tokens the shared language of Design and Engineering, through a talk.</p>
